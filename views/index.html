@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UI portage</title>
+   <link rel="stylesheet" href="/static/css/default.css">
+   <link rel="stylesheet" type="text/css" href="/static/css/photon.css"> 
+
+   <script src="/static/js/src/brython.js"></script>
+    <script src="/static/js/src/brython_stdlib.js"></script>
+    <script src="/static/app/app.py" type="text/python3"></script>
+    <!--<script src="/static/app/ui.py" type="text/python3"></script>-->
+    <script type="text/javascript">
+     
+
+    
+      window.onload = function() {setTimeout(function (){
+      document.getElementById('splash').style.display="none";
+      document.getElementById('main').style.display ="block";
+      
+
+       }, 3000);
+      brython();
+      //document.getElementById('home').style.background='coral'; 
+    };
+        
+      
+    </script>
+    
+</head>
+<body >
+
+    <div id="splash" class="splash">
+        <div class="block">
+         
+
+            <div class="lds-facebook"><div></div><div></div><div></div></div>
+            <h3 id="h_spl" name="h_spl" style=" color: #AAA;">Идёт загрузка ......</h3>
+            
+            
+        </div>
+      <!--
+        <div class="console">
+         
+              
+                <p class="terminal">Идёт загрузка ......</p>
+        </div>
+    -->
+    </div>
+    <div align="center" id="main" class="window">
+      <header class="toolbar toolbar-header">
+        <h1 class="title"></h1>
+          <div class="toolbar-actions">
+            <li class="list-group-header">
+                <input  id="inS" name="inS" class="form-control" type="text" placeholder="Введите имя пакета">
+                <button id="submit_search">Поиск</button>
+                <button id="debug">Отладка</button>
+            </li>
+          </div>
+        </header>
+         <div id="link_panel" class="tab-group">
+                  <div id={item[0]} class="tab-item" b-code="for item in menu_port.items():" >{item[1]}</div>
+
+        </div>
+      <div id="conteiner" class="window-content"></div>
+     <!-- <iframe  id="py_console" src="http://brython.info/console.html" width="800" height="400"></iframe> -->
+
+</body>
+
+</html>

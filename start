@@ -1,0 +1,6 @@
+#/bin/bash 
+#rm  ./gpo-repositories.xml
+#wget http://gpo.zugaina.org/lst/gpo-repositories.xml && 
+python3 server.py 
+
+#python client.py

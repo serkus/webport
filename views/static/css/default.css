@@ -1,0 +1,248 @@
+ @font-face {
+  font-family: 'NINBrokenPlainCyr';
+  src: url('/static/font/14666.ttf'); 
+
+}
+@keyframes view_pkg{
+    from{
+        width: 50%;
+    }
+    to{
+
+        width: 80%;
+    }
+
+}
+ * {
+    box-sizing: border-box;
+ }
+html,  body{ margin: 0px; padding: 0px; }
+
+        .splash{ top: 0px; left: 0px; width: 100vw; height: 100vh;
+    /* background:  rgba(204,204,204 , 1); /*  #FFF; 4682B4; */ display: block;
+        background: #4B4D56;
+        align-content:  center;
+        text-align: center;  
+        background: -webkit-linear-gradient(top, #4B4D56, #050505);
+        background: -moz-linear-gradient(top, #4B4D56, #050505);
+        background: linear-gradient(to bottom, #4B4D56, #050505);
+
+
+         }
+        .splash .block {
+                width: 250px;
+                height: 250px;
+                position: relative;
+                top: 50vh;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                --align: justify-all;
+                }
+        body {font: 14px NINBrokenPlainCyr; }
+        .splash .block #logo {
+                /*width: 100px;
+                height: 100px;*/
+                display: block;
+                margin: 0 auto;
+                border: none;
+                /*background: #4B4D56;
+                border: 3px inset #01FFE7;
+                border-radius: 50px;*/
+            
+                 }
+        .splash .console{ bottom: 0px; left:  0px; width: 100%; }
+        .progress{ height: 20px; width: 0%;  border: 1px solid  #FFF; background: coral; border-radius: 10px;}
+
+
+        .main{ top:0px; left: 0px; width:100vw; height: 100vh; background: #2f323e;
+            display: none; box-shadow: 3px 3px 10px #000; overflow-y: scroll; /*margin-left: 25%*/; }
+
+        .main .nav_bar { width : 100vh; height: 40px;  background:/* #2f323e; */ color: #AAA;}
+
+        .main .pckg_conteiner .menu_packgs{  top: 0px;  left: 0px; width: 210px; height: 100%; background: #2F323E; color: #CCC; border: 1px solid #AAA;} 
+        .main .pckg_conteiner .menu_packgs .pckg_catgs li { list-style: none; background: #2f323e; }
+        .main .pckg_conteiner .menu_packgs .pckg_catgs li a{text-decoration: none;  color : #AAA;  background: #2f323e; ;}
+        .main .pckg_conteiner .menu_packgs .pkg_list{ top:0px; left: -170px; width: 170px; height: 100%; overflow: auto; color: coral; }
+        .main .pckg_conteiner .menu_packgs .pkg_list li{list-style: none;}
+        .main .pckg_conteiner .menu_packgs .pkg_list li a { text-decoration: none; color: #AAA;} 
+    
+        .main .search_fld { margin: 0 auto;  background: rgba(47, 50, 62, 0.35);   /*#2f323e*/ padding: 5px; /*box-shadow: 3px 4px 10px;*/
+          padding-bottom: 20px; /* border: 1px solid #000; box-shadow: 3px 4px 10px; */}
+         #inS{ width: 50%;}
+
+        * li {list-style: none;}
+        * li  a{ text-decoration: none; }
+
+        .main .search_fld .btn {position: relative; top: 11px; padding: 0px; font-size: 18px; color: #FFF; border-radius: 16px; margin-left: -36px; text-decoration: none;}
+
+        .link_panel{ margin-top: 7px; padding-bottom:22px;/* box-shadow: 0px 7px 4px #000; */}
+        .link_panel li{ display: inline; box-shadow: 0px 7px 4px #000}
+       
+        .link_panel li a{ padding: 8px; color:#FFF;  margin: 0px;}
+        .link_panel li a:hover{ background: coral; color: #000;}
+        #pack_container{ background: #000;}
+        .nav_panel{float: left; height: 100%; margin: 0px; background: rgba(47, 50, 62, 0.65);   /*#2f323e*/ padding: 5px; box-shadow: 3px 4px 10px #000;
+            border: 3px inset; display: none;
+        } 
+        .nav_panel ul{ text-align: left; width: 100%;}
+        .nav_memu li{ margin-top: 8px; }
+
+        .nav_memu li a{ color: #FFF;}  
+        .nav_memu li a  b{
+            float: right;
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg)
+
+        }
+       /*() .nav_menu li a svg {
+            margin-top: 10px;
+
+
+        }*/
+        .Use { overflow: auto;display: block;width: 94%;}
+        .Use li{ margin-left: -26px; display: inline-flex;padding-left: 31px; }
+        .Version{ overflow:  hidden; display: flex; }
+        .Version li{ margin-left: 9px; }
+        .card :hover{ animation:  view_pkg; }  
+        .card {    width: 100vw;
+                width: 100vw;
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 0px;
+            background: #2f323e;
+            /*-webkit-filter: blur(5px);*/
+            margin: 10px;
+            font-size: 12px;
+            float: left;
+            text-align: left;
+            color: #FFF;
+            height: 100vh;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.65);
+            overflow-y: auto;
+            /*-webkit-filter: blur(5px);
+              -moz-filter: blur(5px);
+              -o-filter: blur(5px);
+              -ms-filter: blur(5px);
+              filter: blur(5px);*/
+            /*margin: 10px;*/       
+
+         }
+        .card a { color: coral; }
+
+        .list_p{float: left;  max-width: 20%; padding: 10px; border-right:  1px  solid #000;
+
+         width: 15vw; }
+        .list_p li { border-bottom:  1px solid #000; }
+        .list_p li a {  }
+        .dashbboard{  width: 85vh;/* padding: 10px; /*background: #2e323f;*/  }
+        .repo_card { background: #000; border: 1px solid; border-radius: 10px; box-shadow: 3px 4px 5px;
+         }
+
+        [class*='repo'] ul *{ background: coral; /*cadetblue; */}
+        li[text='name'] { background: coral; }
+        a[textContent*='"Install"'] {color: #FFF;}
+
+        .card div span{ float: initial;  font-size: 14px;}
+
+        #pack_list ul ul{display: flex; background: rgba(47, 50, 62, 0.85); 
+        margin-top: 10px; 
+
+        }
+        
+        #pack_list ul ul strong { display: table-cell; }
+        .btm strong .btn {          color: #000;
+                        float: right;
+                        text-decoration: none;
+                        font-size: 14px;
+                        background: coral;
+                        padding: 10px;
+                        border-radius: 3px;
+                    border: 1px solid #666;
+                    }
+        
+        #pack_list .catalog {  }
+        #pack_list .card  ul {color: coral;}
+        
+        #pack_list .card ul li { padding: 5px; color: #FFF;  }
+
+        #pack_list { /*float: left; color: #FFF; */text-align: left; /*border: 1px solid #000;
+        box-shadow: 3px 4px 10px #000;*/ padding: 15px;
+        width: 71%;
+
+    }
+        .repo { display: list-item; background: coral;}
+        .repo { display: table-cell; margin: 20px; }
+        #pack_list li a{ color: coral;}
+        #pack_list a{ color: coral; }
+        .Sv  p{ text-align: center; }
+        .Sv p select {margin-left: 31px}
+        .Sv p input {margin-left: 31px} 
+        #pack_list #ps_menu {display: inline-flex; border-right: 1px solid #333; }
+        #pack_list #ps_menu li{padding: 5px; border-radius: 15px 0px 0px 0px;  border: 1px outset coral; }
+        #pack_list #ps_menu li a {color: #FFF;}
+        #pack_list #edit {width: 80%; min-height: 300px; overflow-y: scroll; border:  1px solid #000;  }
+        #menu_page { width: 30%; }
+        .widget{ width: 100%; min-height: 120px; border: 1px  solid #000; 
+            box-shadow:  3px 4px 10px #000; margin: 20px; float: left;  text-align: center; }
+        .widget strong{ display: inline-flex; }
+
+
+        .btm{ bottom: 0px; left: 0px;  width: 100%;}
+        .over_card{
+            padding: 10px;
+            width: 44%;
+
+        }
+        #container { width: 100vw; height: 100vh; overflow-y: scroll; position: relative; }
+        #py_console{ display: none; }
+
+/* loading css */
+
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 6px;
+  width: 13px;
+  background: #fff;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 6px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 26px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 45px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 6px;
+    height: 51px;
+  }
+  50%, 100% {
+    top: 19px;
+    height: 26px;
+  }
+}
+
+
+  /*end  loading*/
+
+.pkg{color: #0F0;}
+
+.mask{ color: coral; }
