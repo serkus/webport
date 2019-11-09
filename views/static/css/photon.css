@@ -713,7 +713,8 @@ img {
   /*position: fixed;*/
   overflow-y: scroll;
   height: 100vh;
-  width: 21vw;
+  width: 15vw;
+
   list-style: none;
   margin: 0;
   padding: 0;

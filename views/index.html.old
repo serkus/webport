@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UI portage</title>
+   <link rel="stylesheet" href="/static/css/default.css">
+   <link rel="stylesheet" type="text/css" href="/static/css/photon.css">
+   <style>
+    
+   </style> 
+   <!--<script src="https%3A%2F%2Fyastatic.net%2Fjquery%2F3.3.1%2Fjquery.min.js"></script> -->
+   <script src="/static/js/src/brython.js"></script>
+    <script src="/static/js/src/brython_stdlib.js"></script>
+    <script src="/static/app/app.py" type="text/python3"></script>
+    <script src="/static/app/ui.py" type="text/python3"></script>
+    <script type="text/javascript">
+      function Draw_animate()
+      { var cntx = document.getElementById("logo").getContext("2d");  
+
+
+
+        }
+
+
+
+        window.onload = function() {setTimeout(function (){  document.getElementById('splash').style.zIndex='0'; document.getElementById('main').style.zIndex='1'; }, 3000); brython();         document.getElementById('home').style.background='coral'; }
+        
+      
+    </script>
+    
+</head>
+<body >
+  
+    <div id="splash" class="splash">
+        <div class="block">
+          <canvas id="logo"></canvas>
+            <!--<img src="http://start.calculate-linux.ru/img/start/logo.png"/>
+            <img src="http://hpunix.org/images/content/vyshel-calculate-linux-desktop-12.jpg"/> -->
+            <h3 id="h_spl" name="h_spl" style=" color: #AAA;">Загрузка</h3>
+            
+            
+        </div>
+
+        <div class="console">
+              <canvas id="logo"></canvas>
+                <p class="terminal">Идёт загрузка ......</p>
+        </div>
+
+    </div>
+    <div align="center" id="main" class="main">
+      <div class="nav_panel">
+        <!--    
+        <div id ="search_fld" class="search_fld">
+          <b id="btnSclose" style="color: aqua;float: inline-end;">x</b>
+            <!--<img  style=" width: 128px; height: 64px; " src="http://start.calculate-linux.ru/img/start/logo.png"/> 
+            <input id="inS" name="inS" type="text"/>
+             <a id="mybutton" href="#" class="btn">
+            
+                 <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                     <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ 
+
+                     <title>Search</title>
+                     <g>
+                      <title>Search</title>
+                      <g id="svg_13">
+                       <rect fill="none" stroke="#FFFFFF" x="50.53428" y="41.61474" width="0" height="0.51828" id="svg_3"/>
+                       <circle id="svg_7" r="5.27195" cy="13.4337" cx="12.41675" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="null" stroke="#FFFFFF" fill="none"/>
+                       <rect transform="matrix(0.396913, 0.354698, -0.372542, 0.377901, 21.4156, -9.71215)" id="svg_11" height="4.88048" width="20.27983" y="41.66855" x="29.76409" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="null" stroke="#FFFFFF" fill="none"/>
+                      </g>
+                     </g>
+                  </svg>
+
+
+              </a>
+            
+        </div>-->
+          
+          <ul id="nav_memu"  class="nav_memu">
+              
+              <!--<li><a href="#"><b>|||</b></a></li> -->
+              <li b-code="for item in catalog:"><a id={item} href="#">{item}</a></li>
+
+
+      
+
+            </ul>
+          </div>
+
+
+      <ul id="link_panel" class="link_panel">
+                <li b-code="for item in menu_port.items():"><a id={item[0]} href="#">{item[1]}</a></li>
+               
+          <div id="search_fld" class="search_fld">
+            <b id="btnSclose" style="color: aqua;float: inline-end;"></b>
+              <!--<img  style=" width: 128px; height: 64px; " src="http://start.calculate-linux.ru/img/start/logo.png"/> -->
+              <input id="inS" name="inS" type="text"/>
+               <a id="mybutton" href="#" class="btn">
+              
+                   <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                       <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+
+                       <title>Search</title>
+                       <g>
+                        <title>Search</title>
+                        <g id="svg_13">
+                         <rect fill="none" stroke="#FFFFFF" x="50.53428" y="41.61474" width="0" height="0.51828" id="svg_3"/>
+                         <circle id="svg_7" r="5.27195" cy="13.4337" cx="12.41675" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="null" stroke="#FFFFFF" fill="none"/>
+                         <rect transform="matrix(0.396913, 0.354698, -0.372542, 0.377901, 21.4156, -9.71215)" id="svg_11" height="4.88048" width="20.27983" y="41.66855" x="29.76409" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="null" stroke="#FFFFFF" fill="none"/>
+                        </g>
+                       </g>
+                    </svg>
+
+
+                </a>
+                <!--
+                <div id="progress_bar" style=" width: 50%; border: 1px  solid coral;"></div>
+              -->
+        </div>
+            </ul>
+        
+        
+    
+        <div id="pack_list" class="pack_list">
+
+        </div>
+
+      
+              
+      
+    </div>
+
+
+
+
+
+
+    </div>
+
+</body>
+</html>

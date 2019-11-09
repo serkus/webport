@@ -1,8 +1,8 @@
- @font-face {
+/* @font-face {
   font-family: 'NINBrokenPlainCyr';
   src: url('/static/font/14666.ttf'); 
 
-}
+}*/
 @keyframes view_pkg{
     from{
         width: 50%;
@@ -11,17 +11,17 @@
 
         width: 80%;
     }
-
 }
  * {
     box-sizing: border-box;
+
  }
-html,  body{ margin: 0px; padding: 0px; }
+html, body{ margin: 0px; padding: 0px; font-size:24px; }
 
         .splash{ top: 0px; left: 0px; width: 100vw; height: 100vh;
-    /* background:  rgba(204,204,204 , 1); /*  #FFF; 4682B4; */ display: block;
+        /* background:  rgba(204,204,204 , 1); /*  #FFF; 4682B4; */ display: block;
         background: #4B4D56;
-        align-content:  center;
+        align-content: center;
         text-align: center;  
         background: -webkit-linear-gradient(top, #4B4D56, #050505);
         background: -moz-linear-gradient(top, #4B4D56, #050505);
@@ -83,7 +83,7 @@ html,  body{ margin: 0px; padding: 0px; }
         .link_panel li a{ padding: 8px; color:#FFF;  margin: 0px;}
         .link_panel li a:hover{ background: coral; color: #000;}
         #pack_container{ background: #000;}
-        .nav_panel{float: left; height: 100%; margin: 0px; background: rgba(47, 50, 62, 0.65);   /*#2f323e*/ padding: 5px; box-shadow: 3px 4px 10px #000;
+        .nav_panel{float: left; height: 100vh; margin: 0px; background: rgba(47, 50, 62, 0.65);   /*#2f323e*/ padding: 5px; box-shadow: 3px 4px 10px #000;
             border: 3px inset; display: none;
         } 
         .nav_panel ul{ text-align: left; width: 100%;}
@@ -109,8 +109,7 @@ html,  body{ margin: 0px; padding: 0px; }
         .Version{ overflow:  hidden; display: flex; }
         .Version li{ margin-left: 9px; }
         .card :hover{ animation:  view_pkg; }  
-        .card {    width: 100vw;
-                width: 100vw;
+        .card width:100%;
             padding: 10px;
             border: 1px solid #000;
             border-radius: 0px;
@@ -135,7 +134,7 @@ html,  body{ margin: 0px; padding: 0px; }
         .card a { color: coral; }
 
         .list_p{float: left;  max-width: 20%; padding: 10px; border-right:  1px  solid #000;
-
+         font-size: 24px; text-align: left; float: justify;
          width: 15vw; }
         .list_p li { border-bottom:  1px solid #000; }
         .list_p li a {  }
@@ -243,6 +242,39 @@ html,  body{ margin: 0px; padding: 0px; }
 
   /*end  loading*/
 
+/*  start find annimation*/
+    
+
+
+/* End find */
+
 .pkg{color: #0F0;}
 
 .mask{ color: coral; }
+.flex_header{
+    display: flex;
+    background: darkgrey;
+    margin: 0px; padding: 0px;
+    list-style: none;
+}
+.flex_header li{
+    flex: 1;  border: 1px solid #CCC; padding: 3px;
+}
+
+.flex_tab{display: flex;
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+}
+.flex_tab li {flex: 1; border: 1px solid #CCC; padding: 3px;
+}
+.back_btn {
+    float: left;
+    color: #FFF;
+    height: 100vh;
+    background: #2e323f;
+    font-size: 24px;
+    padding: 10px;
+    position: relative;
+    top: -23px;
+}

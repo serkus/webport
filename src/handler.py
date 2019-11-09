@@ -14,9 +14,14 @@ class Handler(BaseHTTPRequestHandler):
 		self.p_list =[]
 
 	def r_403(self):
-			self.send_response(403)
-			self.end_headers()
-			print(self.client_address)
+		self.send_response(403)
+		self.end_headers()
+		print(self.client_address)
+	
+	def r_404(self):
+		self.send_response(404)
+		self.end_headers()
+		print(self.client_address)
 
 	def do_GET(self):
 		self.r_t =""
@@ -25,15 +30,13 @@ class Handler(BaseHTTPRequestHandler):
 			self.end_headers()
 			if self.path =="/":
 
-				f = open('./views/index.html', 'tr')
-				self.r_t=f.read()
-				f.close()
+				with open('./views/index.html', 'tr') as f:
+					self.r_t=f.read()
 				print(self.client_address)
-				#print(self.r_t)
 				
 			elif self.path == '/main':
 				f = open("./README.txt", 'r')
-				self.r_t =str(f.read())
+				self.r_t = str(f.read())
 				f.close()
 
 			elif self.path == '/ovelays':
@@ -45,9 +48,8 @@ class Handler(BaseHTTPRequestHandler):
 				self.r_t=json.dumps({"repositories": overlays})
 				
 			elif self.path == "/favicon.ico":
-				f = open('./favicon.png', 'rb')
-				self.r_t = f.read()
-				f.close()
+				with open('./favicon.png', 'rb') as f:
+					self.r_t = f.read()
 					
 			elif self.path == '/logo.png':
 				pass
@@ -56,6 +58,13 @@ class Handler(BaseHTTPRequestHandler):
 				self.r_static()
 				self.send_response(200)
 				#print(self.r_t)
+
+			elif self.path == '/get_dump_list':
+				with open('./pkgs.txt', 'r') as fn:
+					data = fn.read()
+					pkg_list = data.split("\n")
+
+				self.r_t =json.dumps({"dump_portage": pkg_list})
 
 			elif self.path.startswith("/?st_app="):
 				config = load_config()
@@ -79,7 +88,7 @@ class Handler(BaseHTTPRequestHandler):
 				#if len(param.split('/')) == 2:
 				#	param = param.split('/')[1]
 				p_list = on_find(param)
-				#print(p_list)
+				print(p_list)
 				if len(p_list) == 0:
 					print("Never Found")
 					self.r_t = str(json.dumps({"Package_result": p_list}))
@@ -94,14 +103,20 @@ class Handler(BaseHTTPRequestHandler):
 					search_result = {"Package_result": pk_list}
 					self.r_t = str(json.dumps(search_result))
 
-			elif self.path.startswith("/get_seiings_app"):
+			elif self.path.startswith("/get_settings_app"):
+
 				self.r_t = str(json.dumps(load_config()))
 
+			elif self.path == '/get_portage':
 
-
-			elif self.path == '/get_inastal_list':
 				self.r_t = str(sort_inatll_pkg())
-				
+
+			elif '.py?' in self.path:
+				print("loading")
+				self.path = "/static/app" + str(self.path.split('?')[0])
+				print(self.path)
+				self.r_static()
+
 			else:
 				self.send_response(404)
 				
@@ -123,9 +138,9 @@ class Handler(BaseHTTPRequestHandler):
 			#self.send_response(200)
 			#self.send_header('Content-type','text/css')
 			#self.end_headers()
-			f = open('./views/' + self.path, 'tr')
-			self.r_t=f.read()
-			f.close()
+			with open('./views/' + self.path, 'tr') as f:
+				self.r_t=f.read()
+			
 		else:
 			self.send_response(404)
 			self.end_headers()
