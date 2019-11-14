@@ -49,8 +49,6 @@ def Repositories():
 def Menu():
 	pass
 
-
-
 def overlays(data):
     # <= html.STRONG( "Доступно:\t" + str(len(overlays["repositories"])) + " Оверлеев")
     widget = html.DIV(Class="table-striped")
@@ -83,21 +81,25 @@ def overlays(data):
         widget <= widget_b
     return widget
 
-def st_portage():
+
+def st_portage(port_st):
     clear_el()
     widget = html.DIV(id="container", Class="")
     container = html.DIV(Class="window-content")
     w_H = html.HEADER(Class="toolbar toolbar-header")
     w_H <= html.H1("Настройка PORTAGE", Class="title")
     widget <= w_H
-    tab_items = ["make.conf", "package.use", "package.mask", "package.unmask", "sets"]
+    list_port_items = port_st['portage']
+
+    #tab_items = ["make.conf", "package.use", "package.mask", "package.unmask", "sets"]
     c = html.DIV(id="ps_menu", Class="list-group")
-    for i in  tab_items:
-      c <= html.DIV(i, Class="list-group-item")
+    for i in list_port_items.keys():
+      c <= html.DIV(i, Class="list-group-item", id=i )
+
     edit = html.DIV(id="edit")
     widget <= c
     widget <= container
-    container <=  edit
+    #container <=  edit
     return widget
 
 def v_app_settings(d):
@@ -117,7 +119,6 @@ def v_app_settings(d):
     app_st_btm <= html.STRONG(html.SPAN("Сохранить", id='App_save', Class ="btn right"))
     #for t in thms:  
     #  theme <= html.P(t + "\t")
-
     container <= lang
     container <=theme
     container <= port
@@ -128,7 +129,6 @@ def bind_back():
     document["dashbboard"].style.width ='0vw'
     document["list_p"].style.width='100vw'
 
-   
 def dashbord_view(pkg):
     card = html.DIV(id='card', Class = "dashboard")
     document["list_p"].style.width = '0vw'

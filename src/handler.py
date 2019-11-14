@@ -110,7 +110,7 @@ class Handler(BaseHTTPRequestHandler):
 			elif self.path == '/get_portage':
 
 				#self.r_t = str(sort_inatll_pkg())
-				self.r_t = str(scan_config_portage())
+				self.r_t = str(json.dumps(scan_config_portage()))
 
 			elif '.py?' in self.path:
 				print("loading")

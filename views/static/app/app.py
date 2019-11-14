@@ -7,7 +7,6 @@ import ui
 from io import StringIO
 parser = window.DOMParser.new()
 menu_port = {'home': "Главная",'overlays':"Оверлеи", 'doc': 'Документации', 'portage_settngs':"Настройка portage",'app_st':"Настройка",'status':"Процесс"}
-catalog = ["Аудио и Видео", "Графика", "Интернет", "Игры", "Программирование", "Система" ]
 overlay_cell = ["Имя", "Описание","Домашняя страничка", "Email", "Исходники"]
 
 version = "web_port - 00.0.025"
@@ -28,8 +27,10 @@ class App():
     self.data =""
     self.widget_tables = ["Новости", "Рекомендации", "Документация"]
     self.install_apps = []
-    self.req_istall_pkg()
     self.portList = []
+    self.portage_list ={}
+    self.req_istall_pkg()
+    self.get_settings_portage()
     self.Req_portage_dump()
 
     #super(App, self).__init__()
@@ -40,6 +41,7 @@ class App():
       d_list = json.loads(req.responseText)
 
       self.portList = d_list['dump_portage']
+
     elif req.status == 404:
       alert('Путь не найден')
     elif req.status == 403:
@@ -175,26 +177,8 @@ class App():
       for i in pl["Package_result"]: 
         #n = n +1
         item = html.P(i, id=i)
-        #item =  html.LI(id=i, Class="list-group-item")
-        #item <= html.A(i)
-        #item = html.LI( id=i["Name"], Class="list-group-item")
-        #item <= html.A(i["Name"])    
         item.bind('click', self.info_pkg)
         c <= item
-    
-    #document["conteiner"] <= widget
-    #document["dashbboard"] <=widget
-    #for i in pl['Package_result']: 
-    #  try:
-        #document[i["Name"]].bind("click", self.info_pkg)
-        #document[i].bind("click", self.info_pkg)
-    #    pass
-
-    #  except KeyError:
-    #    print("KeyError в доб.поиск")
-
-    #  self.view_pkg(pl['Package_result'][0])
-    #self.loading()
 
   def find_pkg(self, req):
     p = []
@@ -210,25 +194,29 @@ class App():
     self.find_bind(str(json.dumps({"Package_result": p})))
     
 
-    """
+  def route(self, method, url, b_metod):
     req = ajax.ajax()
-    if document["inS"].value !='':
-      self.loading()
-      pm = document["inS"].value
-      req.open('GET', '/?p=' + pm,True)
-      location ='/?p=' + pm
-      req.bind('complete', self.find_bind)
-      req.send()
-      
-    else:
-        alert("Name package is Null")
-    """
-    #self.clear_el()
+    req.open(metod, url, True)
+    req.bind(b_metod['metod'], b_metod['callback'])
 
+  def show_file(ev):
+    config = ev.currentTarget.id
+    for e in self.portage_list['ev.currentTarget.id']:
+      document['edit'] <= html.P(e)
+
+  def show_settings_portage(self, req):
+    print(req.responseText)
+    self.portage_list = json.loads(req.responseText)
+
+  def get_settings_portage(self):
+    req = ajax.ajax()
+    req.open('GET', '/get_portage', True)
+    req.bind('complete', self.show_settings_portage)
+    req.send()
   
   def view_st_portage(self):
-    
-    document["conteiner"] <= ui.st_portage()
+    alert(self.portage_list)
+    document["conteiner"] <= ui.st_portage(self.portage_list)
 
   def view_overlays(self, req):
     #alert(req.responseText)
@@ -247,7 +235,6 @@ class App():
 
     req = ajax.ajax()
     req.open('GET', "/ovelays", True)
-    location = "/ovelays"
     req.bind('complete', self.view_overlays)
     req.send()
   #document['all'].bind('click', all_pkgs)
@@ -288,13 +275,14 @@ def app_s():
 def v_overlays():
   app.get_overlays()
 
-def  v_portge_st():
+def v_portge_st():
   app.view_st_portage()
+
 
 def onKDown(event):
   if event.keyCode == 13:
     document['submit_search'].click()
-
+    
 document["overlays"].bind('click', v_overlays)
 document["submit_search"].bind('click', app.find_pkg)
 document['inS'].bind("keypress", onKDown)

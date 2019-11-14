@@ -109,26 +109,16 @@ def scan_config_portage():
 	i = 0
 	dr = {}
 	data = {}
-	pf=[]
+	pf={}
 	for d, dirs, files in os.walk(dir_root):
-		#config = {'dirs', dirs}
-		#if d.endswith(dirs[i]):
-		#		dr.append({dirs[i], pf})
-		#		pf = []
-		#else:
+
 		print(str(d))
 		i=i+1
 		for fl in files:
 			
 			with open(d + "/" +fl) as f:
-				pf.append({str(d.split('/')[-1]) +  "/"+ fl, f.read()})
+				pf[str(d.split('/')[-1]) +  "/"+ fl]= f.read().split('\n')
 				str(d.split('/')[-1])
-
-			#if len(pf) == len(files):
-			#		print(str(d.split('/')[-1]))
-			#		p = str(d.split('/')[-1])
-			#		dr = {'path', pf}
-
 	print(dr)
 	config = {'portage': pf}
 	print("config:\t" + str(config))
