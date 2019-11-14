@@ -215,7 +215,7 @@ class App():
     req.send()
   
   def view_st_portage(self):
-    alert(self.portage_list)
+    #alert(self.portage_list)
     document["conteiner"] <= ui.st_portage(self.portage_list)
 
   def view_overlays(self, req):
@@ -282,7 +282,7 @@ def v_portge_st():
 def onKDown(event):
   if event.keyCode == 13:
     document['submit_search'].click()
-    
+
 document["overlays"].bind('click', v_overlays)
 document["submit_search"].bind('click', app.find_pkg)
 document['inS'].bind("keypress", onKDown)
