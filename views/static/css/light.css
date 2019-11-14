@@ -98,4 +98,4 @@
         #pack_list #ps_menu {display: inline-flex; border-right: 1px solid #333; }
         #pack_list #ps_menu li{padding: 5px; border: 3px  outset #666; }
         #pack_list #ps_menu li a {color: #000;}
-        #pack_list #edit {width: 80%; min-height: 300px; overflow-y: scroll; border:  1px solid #000;  }
+        #edit {width: 80%; min-height: 300px; overflow-y: scroll; border:  1px solid #000; text-align:left; }

@@ -199,6 +199,7 @@ html, body{ margin: 0px; padding: 0px; font-size:24px; }
         }
         #container { width: 100vw; height: 100vh; overflow-y: scroll; position: relative; }
         #py_console{ display: none; }
+        #edit{text-align: left;}
 
 /* loading css */
 

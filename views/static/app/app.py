@@ -199,14 +199,20 @@ class App():
     req.open(metod, url, True)
     req.bind(b_metod['metod'], b_metod['callback'])
 
-  def show_file(ev):
+  def show_file(self, ev):
     config = ev.currentTarget.id
-    for e in self.portage_list['ev.currentTarget.id']:
-      document['edit'] <= html.P(e)
+    try:
+      document["edit"].clear('config')
 
+    text = self.portage_list['portage'][config]
+    document['edit'] <= html.DIV(id="config")
+    for t in text:
+        document['config'] <= html.P(t)
+        
   def show_settings_portage(self, req):
     print(req.responseText)
     self.portage_list = json.loads(req.responseText)
+    #alert(self.portage_list)
 
   def get_settings_portage(self):
     req = ajax.ajax()
@@ -216,7 +222,7 @@ class App():
   
   def view_st_portage(self):
     #alert(self.portage_list)
-    document["conteiner"] <= ui.st_portage(self.portage_list)
+    document["conteiner"] <= self.st_portage(self.portage_list)
 
   def view_overlays(self, req):
     #alert(req.responseText)
@@ -242,6 +248,30 @@ class App():
   #get_overlays()
   def install_config(self, ev):
     alert(str(ev.currentTarget.id))
+
+  def st_portage(self, port_st):
+    ui.clear_el()
+    widget = html.DIV(id="container", Class="")
+    container = html.DIV(Class="window-content")
+    w_H = html.HEADER(Class="toolbar toolbar-header")
+    w_H <= html.H1("Настройка PORTAGE", Class="title")
+    widget <= w_H
+    list_port_items = port_st['portage']
+
+    #tab_items = ["make.conf", "package.use", "package.mask", "package.unmask", "sets"]
+    c = html.DIV(id="ps_menu", Class="list-group")
+    for i in list_port_items.keys():
+      it = html.DIV(i, Class="list-group-item", id=i)
+      c <= it
+      it.bind("click", self, self.show_file)
+
+    edit = html.DIV(id="edit")
+    widget <= c
+    widget <= container
+    container <=  edit
+    return widget
+
+
 
 # End  Class App
 
