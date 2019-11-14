@@ -4,7 +4,7 @@ import json
 #from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 from http.server import BaseHTTPRequestHandler
 import os
-from utils.utils import get_list_overlays, load_config, write_config, sort_inatll_pkg
+from utils.utils import get_list_overlays, load_config, write_config, sort_inatll_pkg, scan_config_portage
 from package import search
 from findfsdb import on_find 
 
@@ -109,7 +109,8 @@ class Handler(BaseHTTPRequestHandler):
 
 			elif self.path == '/get_portage':
 
-				self.r_t = str(sort_inatll_pkg())
+				#self.r_t = str(sort_inatll_pkg())
+				self.r_t = str(scan_config_portage())
 
 			elif '.py?' in self.path:
 				print("loading")

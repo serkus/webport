@@ -122,7 +122,7 @@ class App():
 
   def get_sett(self):
     req = ajax.ajax()
-    req.open("GET", "/get_seiings_app", True)
+    req.open("GET", "/get_settings_app", True)
     req.bind('complete', self.app_settings)
     req.send()
 
