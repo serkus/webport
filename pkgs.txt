@@ -874,7 +874,6 @@ x11-terms/lilyterm
 x11-terms/lilyterm
 x11-terms/kitty
 x11-terms/kitty
-x11-terms/kitty
 x11-terms/terminology
 x11-terms/qterminal
 x11-terms/qterminal
@@ -1278,8 +1277,6 @@ app-arch/libarchive
 app-arch/libarchive
 app-arch/lzop
 app-arch/lha
-app-arch/lha
-app-arch/lha
 app-arch/cksfv
 app-arch/cksfv
 dev-games/libmaitretarot
@@ -1375,6 +1372,7 @@ net-fs/cifs-utils
 net-fs/nfs4-acl-tools
 net-fs/nfs4-acl-tools
 net-fs/nfs-utils
+net-fs/s3fs
 net-fs/s3fs
 net-fs/s3fs
 net-fs/openafs
@@ -2276,6 +2274,7 @@ x11-misc/mate-notification-daemon
 x11-misc/xlockmore
 x11-misc/xlockmore
 x11-misc/xlockmore
+x11-misc/xlockmore
 x11-misc/xcape
 x11-misc/xcape
 x11-misc/util-macros
@@ -2886,7 +2885,6 @@ media-gfx/hugin
 media-gfx/pqstego
 media-gfx/gscan2pdf
 media-gfx/gscan2pdf
-media-gfx/gscan2pdf
 media-gfx/geeqie
 media-gfx/geeqie
 media-gfx/geeqie
@@ -2930,6 +2928,7 @@ media-gfx/propaganda
 media-gfx/colorhug-client
 media-gfx/pixels2pgf
 media-gfx/pixels2pgf
+media-gfx/inkscape
 media-gfx/inkscape
 media-gfx/inkscape
 media-gfx/metapixel
@@ -3101,7 +3100,6 @@ media-gfx/povray
 media-gfx/aewan
 media-gfx/blender
 media-gfx/exif
-media-gfx/jpeg2ps
 media-gfx/jpeg2ps
 media-gfx/graphviz
 media-gfx/graphviz
@@ -3665,6 +3663,7 @@ mail-mta/sendmail
 mail-mta/sendmail
 mail-mta/exim
 mail-mta/exim
+mail-mta/netqmail
 mail-mta/netqmail
 mail-mta/netqmail
 mail-mta/opensmtpd
@@ -4470,7 +4469,6 @@ media-libs/giflib
 media-libs/giflib
 media-libs/giflib
 media-libs/giflib
-media-libs/giflib
 media-libs/vulkan-loader
 media-libs/vulkan-loader
 media-libs/vulkan-loader
@@ -4499,7 +4497,6 @@ media-libs/libexif
 media-libs/suil
 media-libs/libvisio
 media-libs/libvisio
-media-libs/libvisio
 media-libs/lastfmlib
 media-libs/wxsvg
 media-libs/wxsvg
@@ -4516,7 +4513,6 @@ media-libs/sdl2-ttf
 media-libs/sdl2-ttf
 media-libs/flac
 media-libs/flac
-media-libs/libquvi
 media-libs/libquvi
 media-libs/libquvi
 media-libs/libquvi
@@ -4637,7 +4633,6 @@ media-libs/ilmbase
 media-libs/libnsbmp
 media-libs/libdvdcss
 media-libs/libmpeg3
-media-libs/libmpeg3
 media-libs/libsdl
 media-libs/glm
 media-libs/glm
@@ -4698,7 +4693,6 @@ media-libs/libchamplain
 media-libs/libuvc
 media-libs/libtheora
 media-libs/libxtract
-media-libs/libfame
 media-libs/libfame
 media-libs/glfw
 media-libs/libid3tag
@@ -4890,7 +4884,6 @@ media-libs/osl
 media-libs/osl
 media-libs/osl
 media-libs/libcddb
-media-libs/libcddb
 media-libs/libsoundtouch
 media-libs/chromaprint
 media-libs/chromaprint
@@ -4973,7 +4966,6 @@ media-libs/netpbm
 media-libs/libgii
 media-libs/audiofile
 media-libs/guilib
-media-libs/guilib
 media-libs/allegro
 media-libs/allegro
 media-libs/allegro
@@ -4994,7 +4986,6 @@ media-libs/shaderc
 media-libs/shaderc
 media-libs/libicns
 media-libs/bio2jack
-media-libs/libdv
 media-libs/libdv
 media-libs/libdv
 media-libs/tse3
@@ -5026,6 +5017,9 @@ dev-db/postgresql
 dev-db/postgresql
 dev-db/postgresql
 dev-db/pgtap
+dev-db/mariadb
+dev-db/mariadb
+dev-db/mariadb
 dev-db/mariadb
 dev-db/mariadb
 dev-db/mariadb
@@ -5205,8 +5199,6 @@ dev-db/mysql-cluster
 dev-db/mysql-cluster
 dev-db/mysql-cluster
 dev-db/gqlplus
-dev-db/phpmyadmin
-dev-db/phpmyadmin
 dev-db/phpmyadmin
 dev-db/percona-server
 dev-db/percona-server
@@ -5624,6 +5616,7 @@ dev-util/serialtalk
 dev-util/sel
 dev-util/dialog
 dev-util/dialog
+dev-util/dialog
 dev-util/bin_replace_string
 dev-util/ftjam
 dev-util/sccache
@@ -5723,7 +5716,6 @@ dev-util/vbindiff
 dev-util/build
 dev-util/kdevelop-php
 dev-util/kdevelop-php
-dev-util/kdevelop-php
 dev-util/bustle
 dev-util/bustle
 dev-util/bustle
@@ -5791,6 +5783,7 @@ dev-util/android-sdk-update-manager
 dev-util/android-sdk-update-manager
 dev-util/android-sdk-update-manager
 dev-util/duma
+dev-util/nvidia-cuda-sdk
 dev-util/nvidia-cuda-sdk
 dev-util/nvidia-cuda-sdk
 dev-util/nvidia-cuda-sdk
@@ -5891,7 +5884,6 @@ dev-util/herdtools7
 dev-util/herdtools7
 dev-util/cgvg
 dev-util/ddd
-dev-util/kdevelop
 dev-util/kdevelop
 dev-util/kdevelop
 dev-util/obs-service-format_spec_file
@@ -6080,7 +6072,6 @@ dev-util/pkgcheck
 dev-util/vtable-dumper
 dev-util/doxy-coverage
 dev-util/bakefile
-dev-util/kdevelop-python
 dev-util/kdevelop-python
 dev-util/kdevelop-python
 dev-util/obs-service-set_version
@@ -6427,7 +6418,6 @@ games-emulation/mupen64plus-rsp-hle
 games-emulation/libretro-info
 games-emulation/libretro-info
 games-emulation/desmume
-games-emulation/desmume
 games-emulation/openmsx
 games-emulation/gens
 games-emulation/generator
@@ -6591,6 +6581,7 @@ sys-libs/cracklib
 sys-libs/cracklib
 sys-libs/libseccomp
 sys-libs/libseccomp
+sys-libs/libseccomp
 sys-libs/libsmbios
 sys-libs/libsmbios
 sys-libs/libsmbios
@@ -6681,6 +6672,9 @@ sys-libs/lib-compat-loki
 sys-libs/libaal
 sys-libs/libaal
 sys-libs/libaal
+sys-libs/darwin-libc-headers
+sys-libs/darwin-libc-headers
+sys-libs/darwin-libc-headers
 sys-libs/cygwin-crypt
 sys-libs/libxcrypt
 sys-libs/libxcrypt
@@ -6776,7 +6770,6 @@ dev-ml/ppx_tools
 dev-ml/ocsigen-toolkit
 dev-ml/ocsigen-toolkit
 dev-ml/pipebang
-dev-ml/ocaml-make
 dev-ml/ocaml-make
 dev-ml/async_ssl
 dev-ml/async_ssl
@@ -7345,7 +7338,6 @@ sys-apps/nvme-cli
 sys-apps/nvme-cli
 sys-apps/nvme-cli
 sys-apps/nvme-cli
-sys-apps/attr
 sys-apps/attr
 sys-apps/attr
 sys-apps/stroke
@@ -10783,6 +10775,7 @@ dev-lang/erlang
 dev-lang/erlang
 dev-lang/erlang
 dev-lang/erlang
+dev-lang/erlang
 dev-lang/tcc
 dev-lang/tcc
 dev-lang/tcc
@@ -10860,6 +10853,9 @@ dev-lang/hy
 dev-lang/hy
 dev-lang/hy
 dev-lang/hy
+dev-lang/python
+dev-lang/python
+dev-lang/python
 dev-lang/python
 dev-lang/python
 dev-lang/python
@@ -10992,6 +10988,7 @@ games-rpg/arx-fatalis-data
 games-rpg/gwiz
 games-rpg/eternal-lands
 games-rpg/adonthell
+games-rpg/freedroidrpg
 games-rpg/freedroidrpg
 games-rpg/dragonhunt
 games-rpg/queen
@@ -11272,7 +11269,6 @@ app-misc/razertool
 app-misc/task
 app-misc/smtm
 app-misc/i2bits
-app-misc/tdl
 app-misc/tdl
 app-misc/joy2key
 app-misc/ignuit
@@ -11657,7 +11653,6 @@ app-misc/email2trac
 app-misc/email2trac
 app-misc/delay
 app-misc/getopt
-app-misc/getopt
 app-misc/vifm
 app-misc/vifm
 app-misc/vifm
@@ -11940,7 +11935,6 @@ media-sound/soundkonverter
 media-sound/redoflacs
 media-sound/redoflacs
 media-sound/redoflacs
-media-sound/redoflacs
 media-sound/supercollider
 media-sound/lash
 media-sound/tempest_for_eliza
@@ -11961,6 +11955,8 @@ media-sound/jack-keyboard
 media-sound/jackbeat
 media-sound/pitchtune
 media-sound/audiotools
+media-sound/jack_capture
+media-sound/jack_capture
 media-sound/ptabtools
 media-sound/aeolus
 media-sound/aeolus
@@ -11993,9 +11989,7 @@ media-sound/klick
 media-sound/cadence
 media-sound/cadence
 media-sound/mmix
-media-sound/mmix
 media-sound/protux
-media-sound/jack-rack
 media-sound/jack-rack
 media-sound/linuxsampler
 media-sound/mplay
@@ -12118,7 +12112,6 @@ media-sound/orpheus
 media-sound/gnome-sound-recorder
 media-sound/vsound
 media-sound/cd-discid
-media-sound/cd-discid
 media-sound/jalv
 media-sound/pwavecat
 media-sound/mpdas
@@ -12202,7 +12195,6 @@ media-sound/rcenter
 media-sound/fluid-soundfont
 media-sound/cdplay
 media-sound/gimmix
-media-sound/gimmix
 media-sound/qmmp
 media-sound/qmmp
 media-sound/qmmp
@@ -12219,6 +12211,8 @@ media-sound/murmur
 media-sound/murmur
 media-sound/murmur
 media-sound/a2jmidid
+media-sound/a2jmidid
+media-sound/a2jmidid
 media-sound/traverso
 media-sound/synaesthesia
 media-sound/flac123
@@ -12232,7 +12226,6 @@ media-sound/vkeybd
 media-sound/sooperlooper
 media-sound/qastools
 media-sound/fmdrv
-media-sound/retrovol
 media-sound/retrovol
 media-sound/mangler
 media-sound/cvoicecontrol
@@ -12575,11 +12568,13 @@ kde-misc/plasma-redshift-control
 kde-misc/colord-kde
 kde-misc/basket
 kde-misc/tellico
+kde-misc/tellico
 kde-misc/kimtoy
 kde-misc/plasma-pass
 kde-misc/openofficeorg-thumbnail
 kde-misc/plasma-applet-network-monitor
 kde-misc/kwebkitpart
+kde-misc/kshutdown
 kde-misc/kshutdown
 kde-misc/latte-dock
 kde-misc/latte-dock
@@ -12918,6 +12913,7 @@ kde-frameworks/kdbusaddons
 kde-frameworks/kdbusaddons
 kde-frameworks/bluez-qt
 kde-frameworks/bluez-qt
+kde-frameworks/solid
 kde-frameworks/solid
 kde-frameworks/solid
 kde-frameworks/kauth
@@ -13675,6 +13671,7 @@ sys-cluster/nova
 sys-cluster/nova
 sys-cluster/nova
 sys-cluster/nova
+sys-cluster/nova
 sys-cluster/knem
 sys-cluster/knem
 sys-cluster/libquo
@@ -13854,9 +13851,13 @@ sys-cluster/spark-bin
 sys-cluster/teleport
 sys-cluster/teleport
 sys-cluster/teleport
+sys-cluster/teleport
+sys-cluster/teleport
 sys-cluster/projections
 sys-cluster/csync2
 sys-cluster/csync2
+sys-cluster/galera
+sys-cluster/galera
 sys-cluster/galera
 sys-cluster/galera
 sys-cluster/galera
@@ -15481,6 +15482,7 @@ net-libs/libwebsockets
 net-libs/libwebsockets
 net-libs/libwebsockets
 net-libs/libwebsockets
+net-libs/libwebsockets
 net-libs/libnetfilter_cttimeout
 net-libs/libnetfilter_cttimeout
 net-libs/osptoolkit
@@ -15693,7 +15695,7 @@ net-libs/libdom
 net-libs/libssh2
 net-libs/libssh2
 net-libs/libssh2
-net-libs/nativebiginteger
+net-libs/libssh2
 net-libs/nativebiginteger
 net-libs/nativebiginteger
 net-libs/libpsl
@@ -15822,6 +15824,7 @@ net-libs/nghttp2
 net-libs/nghttp2
 net-libs/libhubbub
 net-libs/libhubbub
+net-libs/libhubbub
 net-libs/uhttpmock
 net-libs/nghttp3
 net-libs/nghttp3
@@ -15913,6 +15916,7 @@ acct-user/bacula
 acct-user/ftp
 acct-user/dnsmasq_exporter
 acct-user/pdnsd
+acct-user/i2p
 acct-user/minecraft
 acct-user/rtkit
 acct-user/kibana
@@ -15931,6 +15935,7 @@ acct-user/msmtpd
 acct-user/unrealircd
 acct-user/burp
 acct-user/mongodb
+acct-user/minetest
 acct-user/inspircd
 acct-user/steamcmd
 acct-user/i2pd
@@ -16622,9 +16627,7 @@ java-virtuals/stax-api
 java-virtuals/xmlrpc-api
 mail-filter/MailScanner
 mail-filter/dspam
-mail-filter/dspam
 mail-filter/sqlgrey
-mail-filter/bmf
 mail-filter/bmf
 mail-filter/razor
 mail-filter/imapfilter
@@ -17311,6 +17314,7 @@ app-shells/scsh
 app-shells/gentoo-zsh-completions
 app-shells/gentoo-zsh-completions
 app-shells/gentoo-zsh-completions
+app-shells/peco
 app-shells/peco
 app-shells/peco
 app-shells/pdmenu
@@ -18871,7 +18875,6 @@ app-text/ocrad
 app-text/iso-codes
 app-text/docx2txt
 app-text/docx2txt
-app-text/docx2txt
 app-text/bibutils
 app-text/pybookreader
 app-text/lout
@@ -18914,7 +18917,6 @@ app-text/mathtex
 app-text/hnb
 app-text/mandoc
 app-text/mandoc
-app-text/letterize
 app-text/letterize
 app-text/XML-Schema-learner
 app-text/jabref-bin
@@ -19101,7 +19103,6 @@ app-text/jadetex
 app-text/sgml-common
 app-text/chasen
 app-text/cwtext
-app-text/cwtext
 app-text/flpsed
 app-text/flpsed
 app-text/flpsed
@@ -19245,7 +19246,6 @@ app-text/aspell
 app-text/grutatxt
 app-text/scrollkeeper
 app-text/gocr
-app-text/gocr
 app-text/teckit
 app-text/docbook-xml-simple-dtd
 app-text/docbook-xml-simple-dtd
@@ -19253,7 +19253,6 @@ app-text/docbook-xml-simple-dtd
 app-text/glosung
 app-text/glosung
 app-text/teseq
-app-text/djvu
 app-text/djvu
 app-text/kjots
 app-text/kchmviewer
@@ -19471,6 +19470,7 @@ dev-go/go-crypto
 dev-go/go-crypto
 dev-go/go-crypto
 dev-go/delve
+dev-go/delve
 dev-go/go-protobuf
 dev-go/siphash
 dev-go/siphash
@@ -19588,6 +19588,7 @@ net-analyzer/mdns-scan
 net-analyzer/snmptt
 net-analyzer/nethogs
 net-analyzer/ipaudit
+net-analyzer/arp-scan
 net-analyzer/arp-scan
 net-analyzer/arp-scan
 net-analyzer/braa
@@ -19764,7 +19765,6 @@ net-analyzer/nagios-plugins
 net-analyzer/nagios-plugins
 net-analyzer/nagios-check_rbl
 net-analyzer/ike-scan
-net-analyzer/ike-scan
 net-analyzer/ipcad
 net-analyzer/fprobe
 net-analyzer/sbd
@@ -19836,7 +19836,6 @@ net-analyzer/vnstat
 net-analyzer/vnstat
 net-analyzer/nagios-check_mysql_health
 net-analyzer/cryptcat
-net-analyzer/cryptcat
 net-analyzer/nagios-plugins-snmp
 net-analyzer/nagios-check_logfiles
 net-analyzer/mping
@@ -19865,7 +19864,6 @@ net-analyzer/tcptraceroute
 net-analyzer/knocker
 net-analyzer/knocker
 net-analyzer/netperf
-net-analyzer/alive
 net-analyzer/alive
 net-analyzer/graphite-web
 net-analyzer/graphite-web
@@ -20694,6 +20692,7 @@ app-admin/setools
 app-admin/cancd
 app-admin/syslog-summary
 app-admin/syslog-summary
+app-admin/syslog-summary
 app-admin/superadduser
 app-admin/superadduser
 app-admin/sagan-rules
@@ -20706,6 +20705,7 @@ app-admin/ide-smart
 app-admin/dio
 app-admin/monit
 app-admin/monit
+app-admin/rsyslog
 app-admin/rsyslog
 app-admin/rsyslog
 app-admin/rsyslog
@@ -20767,6 +20767,7 @@ app-admin/rasdaemon
 app-admin/keepassxc
 app-admin/keepassxc
 app-admin/keepassxc
+app-admin/keepassxc
 app-admin/logsurfer+
 app-admin/augeas
 app-admin/augeas
@@ -20797,7 +20798,6 @@ app-admin/sysstat
 app-admin/sysstat
 app-admin/sysstat
 app-admin/sysstat
-app-admin/sysstat
 app-admin/analog
 app-admin/analog
 app-admin/fifo-cronolog
@@ -20814,6 +20814,7 @@ app-admin/conky
 app-admin/conky
 app-admin/conky
 app-admin/conky
+app-admin/exo
 app-admin/exo
 app-admin/exo
 app-admin/gkrellm
@@ -21439,7 +21440,6 @@ dev-libs/libplatform
 dev-libs/clhpp
 dev-libs/iniparser
 dev-libs/iniparser
-dev-libs/iniparser
 dev-libs/wayland
 dev-libs/wayland
 dev-libs/libmodbus
@@ -21676,9 +21676,6 @@ dev-libs/atf
 dev-libs/xmlsec
 dev-libs/xmlsec
 dev-libs/replicant
-dev-libs/replicant
-dev-libs/replicant
-dev-libs/replicant
 dev-libs/xalan-c
 dev-libs/libspt
 dev-libs/libspt
@@ -21796,8 +21793,6 @@ dev-libs/libreport
 dev-libs/libreport
 dev-libs/libreport
 dev-libs/libpo6
-dev-libs/libpo6
-dev-libs/libpo6
 dev-libs/libbpf
 dev-libs/libbpf
 dev-libs/libbpf
@@ -21822,7 +21817,6 @@ dev-libs/libdaemon
 dev-libs/libdaemon
 dev-libs/libdaemon
 dev-libs/libdynd
-dev-libs/libbegemot
 dev-libs/snowball-stemmer
 dev-libs/libcroco
 dev-libs/libcroco
@@ -22286,8 +22280,6 @@ dev-libs/libnl
 dev-libs/mm
 dev-libs/kpathsea
 dev-libs/libe
-dev-libs/libe
-dev-libs/libe
 dev-libs/kqoauth
 dev-libs/libsigsegv
 dev-libs/libsigsegv
@@ -22374,12 +22366,6 @@ dev-libs/rlog
 dev-libs/lzo
 dev-libs/libxmlb
 dev-libs/libxmlb
-dev-libs/leveldb
-dev-libs/leveldb
-dev-libs/leveldb
-dev-libs/leveldb
-dev-libs/leveldb
-dev-libs/leveldb
 dev-libs/leveldb
 dev-libs/leveldb
 dev-libs/gdl
@@ -23416,6 +23402,7 @@ dev-ruby/timers
 dev-ruby/redcarpet
 dev-ruby/redcarpet
 dev-ruby/actionpack-action_caching
+dev-ruby/actionpack-action_caching
 dev-ruby/c21e
 dev-ruby/c21e
 dev-ruby/c21e
@@ -23691,6 +23678,7 @@ dev-ruby/binding_of_caller
 dev-ruby/pdf-core
 dev-ruby/pdf-core
 dev-ruby/hiera-eyaml
+dev-ruby/hiera-eyaml
 dev-ruby/robots
 dev-ruby/execjs
 dev-ruby/rb-gsl
@@ -23752,7 +23740,6 @@ dev-ruby/msgpack
 dev-ruby/msgpack
 dev-ruby/msgpack
 dev-ruby/allison
-dev-ruby/loofah
 dev-ruby/loofah
 dev-ruby/sprockets-rails
 dev-ruby/rack-attack
@@ -24155,6 +24142,7 @@ dev-ruby/gist
 dev-ruby/rake
 dev-ruby/rake
 dev-ruby/rake
+dev-ruby/rake
 dev-ruby/ttfunk
 dev-ruby/path_expander
 dev-ruby/path_expander
@@ -24287,9 +24275,6 @@ dev-ruby/packetfu
 dev-ruby/regexp_property_values
 dev-ruby/regexp_property_values
 dev-ruby/regexp_property_values
-dev-ruby/haml
-dev-ruby/haml
-dev-ruby/haml
 dev-ruby/haml
 dev-ruby/haml
 dev-ruby/actionpack-xml_parser
@@ -24491,6 +24476,7 @@ dev-ruby/ffi
 dev-ruby/ffi
 dev-ruby/ffi
 dev-ruby/ffi
+dev-ruby/ffi
 dev-ruby/hashie
 dev-ruby/hashie
 dev-ruby/hashie
@@ -24671,7 +24657,6 @@ net-im/bitlbee-facebook
 net-im/telepathy-logger
 dev-cpp/antlr-cpp
 dev-cpp/antlr-cpp
-dev-cpp/antlr-cpp
 dev-cpp/picojson
 dev-cpp/eigen
 dev-cpp/pangomm
@@ -24695,7 +24680,6 @@ dev-cpp/pstreams
 dev-cpp/pstreams
 dev-cpp/libjson-rpc-cpp
 dev-cpp/libjson-rpc-cpp
-dev-cpp/ETL
 dev-cpp/ETL
 dev-cpp/nlohmann_json
 dev-cpp/nlohmann_json
@@ -24926,6 +24910,14 @@ sys-kernel/gentoo-sources
 sys-kernel/gentoo-sources
 sys-kernel/gentoo-sources
 sys-kernel/gentoo-sources
+sys-kernel/gentoo-sources
+sys-kernel/gentoo-sources
+sys-kernel/gentoo-sources
+sys-kernel/gentoo-sources
+sys-kernel/gentoo-sources
+sys-kernel/gentoo-sources
+sys-kernel/gentoo-sources
+sys-kernel/gentoo-sources
 sys-kernel/linux-firmware
 sys-kernel/linux-firmware
 sys-kernel/linux-firmware
@@ -24934,6 +24926,7 @@ sys-kernel/linux-firmware
 sys-kernel/linux-firmware
 sys-kernel/linux-firmware
 sys-kernel/linux-firmware
+sys-kernel/git-sources
 sys-kernel/git-sources
 sys-kernel/git-sources
 sys-kernel/git-sources
@@ -24985,6 +24978,9 @@ sys-kernel/ck-sources
 sys-kernel/ck-sources
 sys-kernel/ck-sources
 sys-kernel/ck-sources
+sys-kernel/xnu-headers
+sys-kernel/xnu-headers
+sys-kernel/xnu-headers
 sys-kernel/vanilla-sources
 sys-kernel/vanilla-sources
 sys-kernel/vanilla-sources
@@ -24999,6 +24995,7 @@ sys-kernel/raspberrypi-sources
 sys-kernel/raspberrypi-sources
 sys-kernel/raspberrypi-sources
 sys-kernel/raspberrypi-sources
+sys-kernel/pf-sources
 sys-kernel/pf-sources
 sys-kernel/pf-sources
 sys-kernel/pf-sources
@@ -25129,6 +25126,7 @@ mail-client/s-nail
 mail-client/thunderbird
 mail-client/thunderbird
 mail-client/mail-notification
+mail-client/neomutt
 mail-client/neomutt
 mail-client/neomutt
 mail-client/neomutt
@@ -25315,7 +25313,6 @@ xfce-extra/xfce4-taskmanager
 xfce-extra/xfce4-timer-plugin
 xfce-extra/xfce4-datetime-plugin
 xfce-extra/xfce4-places-plugin
-xfce-extra/xfce4-composite-editor
 xfce-extra/xfce4-verve-plugin
 xfce-extra/xfce4-xkb-plugin
 xfce-extra/thunar-vcs-plugin
@@ -25859,6 +25856,7 @@ net-misc/keychain
 net-misc/netkit-rsh
 net-misc/pyhoca-gui
 net-misc/pyhoca-gui
+net-misc/memcached
 net-misc/memcached
 net-misc/memcached
 net-misc/kafka-bin
@@ -28016,6 +28014,7 @@ dev-tcltk/tls
 dev-tcltk/tls
 dev-tcltk/tclxml
 dev-tcltk/blt
+dev-tcltk/blt
 dev-tcltk/mysqltcl
 dev-tcltk/tkcon
 dev-tcltk/tkcon
@@ -29551,7 +29550,6 @@ www-apps/cgisysinfo
 www-apps/nanoblogger
 www-apps/dspam-web
 www-apps/mediawiki
-www-apps/mediawiki
 www-apps/gitea
 www-apps/gitea
 www-apps/jekyll-watch
@@ -29861,7 +29859,6 @@ app-office/texstudio
 app-office/texstudio
 app-office/texstudio
 app-office/libreoffice-voikko
-app-office/eqe
 app-office/homebank
 app-office/homebank
 app-office/homebank
@@ -29989,6 +29986,7 @@ sys-block/tw_cli
 sys-block/tw_cli
 sys-block/arcconf
 sys-block/arcconf
+sys-block/fio
 sys-block/fio
 sys-block/fio
 sys-block/fio
@@ -30130,6 +30128,7 @@ app-crypt/ophcrack-tables
 app-crypt/ssh-multiadd
 app-crypt/openssl-blacklist
 app-crypt/libykneomgr
+app-crypt/keybase
 app-crypt/keybase
 app-crypt/keybase
 app-crypt/keybase
@@ -30954,6 +30953,7 @@ dev-python/pyfakefs
 dev-python/pyfakefs
 dev-python/pyfakefs
 dev-python/python-novaclient
+dev-python/python-novaclient
 dev-python/sqlalchemy-migrate
 dev-python/sqlalchemy-migrate
 dev-python/sqlalchemy-migrate
@@ -31146,6 +31146,7 @@ dev-python/shutilwhich
 dev-python/pysolr
 dev-python/pysolr
 dev-python/pysolr
+dev-python/deprecated
 dev-python/deprecated
 dev-python/jupyter
 dev-python/jupyter
@@ -31738,6 +31739,7 @@ dev-python/pyprof2calltree
 dev-python/mock
 dev-python/mock
 dev-python/mock
+dev-python/mock
 dev-python/ipynb
 dev-python/prov
 dev-python/prov
@@ -31881,8 +31883,6 @@ dev-python/python-magnumclient
 dev-python/python-magnumclient
 dev-python/apispec
 dev-python/pypy-bin
-dev-python/cgkit
-dev-python/cgkit
 dev-python/ioflo
 dev-python/ioflo
 dev-python/ioflo
@@ -35125,8 +35125,6 @@ net-print/cups-filters
 net-print/cups-filters
 net-print/cups-filters
 net-print/cups-filters
-net-print/cups-filters
-net-print/cups-filters
 net-print/fax4cups
 net-print/foomatic-db-engine
 x11-drivers/xf86-video-fbdev
@@ -35557,6 +35555,7 @@ acct-group/tape
 acct-group/ftp
 acct-group/dnsmasq_exporter
 acct-group/pdnsd
+acct-group/i2p
 acct-group/minecraft
 acct-group/rtkit
 acct-group/kibana
@@ -35579,6 +35578,7 @@ acct-group/lp
 acct-group/burp
 acct-group/mongodb
 acct-group/audio
+acct-group/minetest
 acct-group/inspircd
 acct-group/steamcmd
 acct-group/i2pd
@@ -35988,7 +35988,6 @@ media-video/peek
 media-video/peek
 media-video/imagination
 media-video/asfrecorder
-media-video/asfrecorder
 media-video/yle-dl
 media-video/yle-dl
 media-video/aravis
@@ -36042,7 +36041,6 @@ media-video/dvdstyler
 media-video/mpeg-tools
 media-video/mpeg-tools
 media-video/photofilmstrip
-media-video/videotrans
 media-video/videotrans
 media-video/openshot
 media-video/openshot
@@ -36441,6 +36439,7 @@ www-client/midori
 www-client/chromium
 www-client/chromium
 www-client/chromium
+www-client/chromium
 games-engines/nazghul
 games-engines/residualvm
 games-engines/residualvm
@@ -36470,6 +36469,7 @@ games-engines/box2d
 games-engines/box2d
 games-engines/box2d
 games-engines/frotz
+games-engines/dMagnetic
 games-engines/stratagus
 games-engines/openmw
 games-engines/frobtads
@@ -36522,9 +36522,6 @@ dev-lua/ldoc
 dev-lua/lua-openssl
 dev-lua/lua-cjson
 dev-lua/lua-cjson
-dev-lua/lgi
-dev-lua/lgi
-dev-lua/lgi
 dev-lua/lgi
 dev-lua/lgi
 dev-lua/lgi

@@ -6,7 +6,7 @@ import browser
 import ui
 from io import StringIO
 parser = window.DOMParser.new()
-menu_port = {'home': "Главная",'overlays':"Оверлеи", 'doc': 'Документации', 'portage_settngs':"Настройка portage",'app_st':"Настройка",'status':"Процесс"}
+menu_port = {'home': "Главная", 'list_pakages': "Список пакетов", 'overlays':"Оверлеи", 'doc': 'Документации', 'portage_settngs':"Настройка portage",'app_st':"Настройка",'status':"Процесс"}
 overlay_cell = ["Имя", "Описание","Домашняя страничка", "Email", "Исходники"]
 
 version = "web_port - 00.0.025"
@@ -55,7 +55,7 @@ class App():
 
   def p_install_list(self, req):
     if req.status == 200:
-      list(plist= json.loads(req.responseText)['install_pkgs'])
+      list(plist=json.loads(req.responseText)['install_pkgs'])
       alert(plist)
       self.install_apps = plist
       #alert(self.install_apps)
@@ -89,7 +89,27 @@ class App():
 
   def add_evenet(self, element):
     pass
-  
+
+  def view_package(self):
+    ui.clear_el()
+    context = html.DIV(id="context")
+    Menupackages = html.UL(Class="list-group")
+    catalog = {}
+    for n in self.portList:
+      if n.split('/')[0] in catalog.keys():
+        #catalog[n.split('/')[0]].append(n.split('/')[1])
+        #try:
+        pass
+        #Menupackages <= html.LI(n.split('/')[0], id=n.split('/')[0])
+        #except KeyError:
+      else:
+        print(n.split('/')[0])
+        catalog[n.split('/')[0]] = [n.split('/')[0]]
+        #MenuItems = html.UL(n.split('/')[0], id=n.split('/')[0])
+        Menupackages <= html.UL(n.split('/')[0], id=n.split('/')[0])
+    context <= Menupackages
+    document['conteiner'] <= context
+    
   def main_bind(self, ev):
     alert(ev.currentTarget.id)
 
@@ -118,7 +138,6 @@ class App():
 
   def app_settings(self, req):
     #location ="/app_st"
-    
     document["conteiner"] <= ui.v_app_settings(json.loads(req.responseText))
     document['App_save'].bind('click', self.app_save)
 
@@ -145,11 +164,10 @@ class App():
     req.bind('complete', self.view_pkg)
     req.send()
 
-
   def find_bind(self, p_list):    #req):  
     #if req.status == 200 or req.status == 0:
       #alert(req.responseText)
-    self.clear_el()
+    ui.clear_el()
     self.loading()
 
     pl = json.loads(p_list)
@@ -182,7 +200,7 @@ class App():
 
   def find_pkg(self, req):
     p = []
-    self.clear_el()
+    ui.clear_el()
     self.loading()
     for i in self.portList:
       if document["inS"].value in i and not i in p:
@@ -190,7 +208,7 @@ class App():
         p.append(str(i))
         #json.dumps({"Package_result": pk})
    
-    self.clear_el()
+    ui.clear_el()
     self.find_bind(str(json.dumps({"Package_result": p})))
     
 
@@ -201,8 +219,7 @@ class App():
 
   def show_file(self, ev):
     config = ev.currentTarget.id
-    try:
-      document["edit"].clear('config')
+    document["edit"].clear('config')
 
     text = self.portage_list['portage'][config]
     document['edit'] <= html.DIV(id="config")
@@ -236,7 +253,7 @@ class App():
   
   def get_overlays(self):
     self.loading()
-    self.clear_el()
+    ui.clear_el()
     document['conteiner'] <= html.DIV(id="container")
 
     req = ajax.ajax()
@@ -270,8 +287,6 @@ class App():
     widget <= container
     container <=  edit
     return widget
-
-
 
 # End  Class App
 
@@ -313,11 +328,15 @@ def onKDown(event):
   if event.keyCode == 13:
     document['submit_search'].click()
 
+def on_v_p():
+  app.view_package()
+
 document["overlays"].bind('click', v_overlays)
 document["submit_search"].bind('click', app.find_pkg)
 document['inS'].bind("keypress", onKDown)
 document["app_st"].bind('click', app_s)
 document["portage_settngs"].bind('click',  v_portge_st)
+document["list_pakages"].bind('click', on_v_p)
 document["home"].bind('click', h)
 
 document["debug"].bind("click", view_console)
