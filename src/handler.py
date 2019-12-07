@@ -22,6 +22,14 @@ class Handler(BaseHTTPRequestHandler):
 		self.send_response(404)
 		self.end_headers()
 		print(self.client_address)
+	def route(self):
+		if self.path in route:
+			return true
+		else:
+			return false
+
+	def parse_url(self):
+		pass
 
 	def do_GET(self):
 		self.r_t =""
@@ -60,12 +68,12 @@ class Handler(BaseHTTPRequestHandler):
 				#print(self.r_t)
 
 			elif self.path == '/get_dump_list':
-				with open('./pkgs.txt', 'r') as fn:
+				with open('./pkgs.json', 'r') as fn:
 					data = fn.read()
-					pkg_list = data.split("\n")
-
+					pkg_list = json.loads(data)
+					print(pkg_list)
 				self.r_t =json.dumps({"dump_portage": pkg_list})
-
+			
 			elif self.path.startswith("/?st_app="):
 				config = load_config()
 				param = self.path.replace("/?st_app=", "") 

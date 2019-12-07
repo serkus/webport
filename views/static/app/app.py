@@ -9,7 +9,7 @@ parser = window.DOMParser.new()
 menu_port = {'home': "Главная", 'list_pakages': "Список пакетов", 'overlays':"Оверлеи", 'doc': 'Документации', 'portage_settngs':"Настройка portage",'app_st':"Настройка",'status':"Процесс"}
 overlay_cell = ["Имя", "Описание","Домашняя страничка", "Email", "Исходники"]
 
-version = "web_port - 00.0.025"
+version = "web_port - 00.0.026"
 #document['v'].bind('click', view_row)
 # Temlate Menu
 Template(document["link_panel"]).render(menu_port=menu_port)
@@ -27,20 +27,21 @@ class App():
     self.data =""
     self.widget_tables = ["Новости", "Рекомендации", "Документация"]
     self.install_apps = []
-    self.portList = []
+    self.portList = {}
     self.portage_list ={}
     self.req_istall_pkg()
     self.get_settings_portage()
     self.Req_portage_dump()
-
+    self.active =""
     #super(App, self).__init__()
 
   def get_portage_dump(self, req):
     if req.status == 200:
-      d_list =[]
+      d_list = []
       d_list = json.loads(req.responseText)
-
+      
       self.portList = d_list['dump_portage']
+      alert(self.portList[0])
 
     elif req.status == 404:
       alert('Путь не найден')
@@ -89,24 +90,35 @@ class App():
 
   def add_evenet(self, element):
     pass
+    
+  def views_list_pkgs(self, ev):
+    item = ev.currentTarget.id
+    self.active = item
+    for i in  self.portList['Catalog'][item]: 
+      MItem = html.LI(i, id=i)
+      document[item] <= MItem
+      MItem.bind('click', self.info_pkg)
 
   def view_package(self):
     ui.clear_el()
     context = html.DIV(id="context")
     Menupackages = html.UL(Class="list-group")
-    catalog = {}
-    for n in self.portList:
-      if n.split('/')[0] in catalog.keys():
+    dashbord = html.DIV(id="dashboard")
+    #catalog = {}
+    #print(self.portList["Catalog"])
+    for n in self.portList["Catalog"].keys():
+      #if c in n.keys():
         #catalog[n.split('/')[0]].append(n.split('/')[1])
         #try:
-        pass
         #Menupackages <= html.LI(n.split('/')[0], id=n.split('/')[0])
         #except KeyError:
-      else:
-        print(n.split('/')[0])
-        catalog[n.split('/')[0]] = [n.split('/')[0]]
-        #MenuItems = html.UL(n.split('/')[0], id=n.split('/')[0])
-        Menupackages <= html.UL(n.split('/')[0], id=n.split('/')[0])
+        #else:
+        #print(n.split('/')[0])
+        #catalog[n.split('/')[0]] = [n.split('/')[0]]
+        MenuItems = html.UL(n, id=n)
+        MenuItems.bind('click', self.views_list_pkgs)
+        Menupackages <= MenuItems
+        print(n)
     context <= Menupackages
     document['conteiner'] <= context
     
@@ -148,14 +160,13 @@ class App():
     req.send()
 
   def view_pkg(self, req):
-    self.loading()
+    #self.loading()
 
     #print(self.install_apps)
     ui.dashbord_view(json.loads(req.responseText))
     #document[str(i["Name"]) + "_btn"].bind('click', self.install_config)
 
   def info_pkg(self, ev):
-    self.loading()
     document['dashbboard'].clear('card')
     pkg = str(ev.currentTarget.id)
     req =ajax.ajax()
@@ -164,14 +175,11 @@ class App():
     req.bind('complete', self.view_pkg)
     req.send()
 
-  def find_bind(self, p_list):    #req):  
-    #if req.status == 200 or req.status == 0:
-      #alert(req.responseText)
-    ui.clear_el()
-    self.loading()
-
-    pl = json.loads(p_list)
-    self.data = pl
+  def find_pkg(self, env):
+    document['splash'].style.display = "block"
+    self.clear_el() 
+    #pl = json.loads(p_list)
+    #self.data = pl
     widget= html.DIV(id="container", Class="")
     w_H = html.HEADER(Class="toolbar toolbar-header")
     w_H <= html.H1("Поиск", Class="title")
@@ -179,39 +187,28 @@ class App():
     container = html.DIV(Class="window-content")
     widget <= container
 
-    pkg_list = []
-    if pl["Package_result"] == 0:
-      pass
-    else:
-      c = html.OL(id="list_p", Class="list-group")
-      c.style.width ='100vw'
-      d = html.DIV(id="dashbboard")
-      c <= html.STRONG("Найдено совпадений:\t" + str(len(pl["Package_result"])))
-      c <= html.HR()
-      container <= c
-      container <= d
-      document["conteiner"] <= widget
-            
-      for i in pl["Package_result"]: 
+    #ui.loading()
+    #ui.clear_el()
+    p = []
+    c = html.OL(id="list_p", Class="list-group")
+    c.style.width ='100vw'
+    c <= html.HR()
+    container <= c
+    d = html.DIV(id="dashbboard")
+    container <= d
+    #c <= html.STRONG("Найдено совпадений:\t" + str(len(pl["Package_result"])))
+    for i in self.portList['all_pkgs']:
+      if document["inS"].value in i and not i in p:
+
+        print(i) 
         #n = n +1
+        p.append(i)
         item = html.P(i, id=i)
         item.bind('click', self.info_pkg)
         c <= item
-
-  def find_pkg(self, req):
-    p = []
-    ui.clear_el()
-    self.loading()
-    for i in self.portList:
-      if document["inS"].value in i and not i in p:
-        print(i)
-        p.append(str(i))
-        #json.dumps({"Package_result": pk})
-   
-    ui.clear_el()
-    self.find_bind(str(json.dumps({"Package_result": p})))
+    document["conteiner"] <= widget
+    document['splash'].style.display = 'none'
     
-
   def route(self, method, url, b_metod):
     req = ajax.ajax()
     req.open(metod, url, True)

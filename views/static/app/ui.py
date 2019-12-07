@@ -82,26 +82,6 @@ def overlays(data):
     return widget
 
 
-def st_portage(port_st):
-    clear_el()
-    widget = html.DIV(id="container", Class="")
-    container = html.DIV(Class="window-content")
-    w_H = html.HEADER(Class="toolbar toolbar-header")
-    w_H <= html.H1("Настройка PORTAGE", Class="title")
-    widget <= w_H
-    list_port_items = port_st['portage']
-
-    #tab_items = ["make.conf", "package.use", "package.mask", "package.unmask", "sets"]
-    c = html.DIV(id="ps_menu", Class="list-group")
-    for i in list_port_items.keys():
-      c <= html.DIV(i, Class="list-group-item", id=i )
-
-    edit = html.DIV(id="edit")
-    widget <= c
-    widget <= container
-    #container <=  edit
-    return widget
-
 def v_app_settings(d):
     clear_el()
    
@@ -195,3 +175,11 @@ def v_main(text, widget_tables):
     widget <= container
 
     return widget
+
+def loading():
+    if document['splash'].style.display == "none":
+      #document['splash'].style.opacity ="0.15"
+      document['splash'].style.display = "block"
+    else:
+      #document['splash'].style.opacity ="1"
+      document['splash'].style.display = 'none'

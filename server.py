@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+#!/usr/bin/env pyton3 
 from http.server import  HTTPServer
 from src.handler import Handler as Handler
 import os, sys, json		

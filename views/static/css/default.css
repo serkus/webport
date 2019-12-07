@@ -30,16 +30,16 @@ html, body{ margin: 0px; padding: 0px; font-size:24px; }
 
          }
         .splash .block {
-                width: 250px;
-                height: 250px;
-                position: relative;
-                top: 50vh;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                margin: auto;
-                --align: justify-all;
-                }
+            width: 250px;
+            height: 250px;
+            position: relative;
+            top: 50vh;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            --align: justify-all;
+            }
         body {font: 14px NINBrokenPlainCyr; }
         .splash .block #logo {
                 /*width: 100px;
@@ -104,19 +104,20 @@ html, body{ margin: 0px; padding: 0px; font-size:24px; }
 
 
         }*/
-        .Use { overflow: auto;display: block;width: 94%;}
-        .Use li{ margin-left: -26px; display: inline-flex;padding-left: 31px; }
-        .Version{ overflow:  hidden; display: flex; }
+        .Use { overflow: auto;display: block;width: 94%; }
+        .Use li{ margin-left: -26px; display: inline-flex;padding-left: 31px;}
+        .Version{ overflow:  hidden;  }
         .Version li{ margin-left: 9px; }
-        .card :hover{ animation:  view_pkg; }  
-        .card width:100%;
+        #card:hover{ animation:  view_pkg; }  
+        #card width:100%;
+
             padding: 10px;
             border: 1px solid #000;
             border-radius: 0px;
             background: #2f323e;
             /*-webkit-filter: blur(5px);*/
             margin: 10px;
-            font-size: 12px;
+            font-size: 1.6em;
             float: left;
             text-align: left;
             color: #FFF;
@@ -131,14 +132,15 @@ html, body{ margin: 0px; padding: 0px; font-size:24px; }
             /*margin: 10px;*/       
 
          }
-        .card a { color: coral; }
+        #card a { color: coral; }
 
-        .list_p{float: left;  max-width: 20%; padding: 10px; border-right:  1px  solid #000;
+        #list_p{padding: 10px; border-right:  1px  solid #000;
          font-size: 24px; text-align: left; float: justify;
          width: 15vw; }
-        .list_p li { border-bottom:  1px solid #000; }
-        .list_p li a {  }
-        .dashbboard{  width: 85vh;/* padding: 10px; /*background: #2e323f;*/  }
+        #list_p p{ font-size: 0.6em; }
+        #list_p li { border-bottom:  1px solid #000; }
+        #list_p li a { font-size: 1.6em; }
+        .dashboard{ font-size: 1.6em; /* padding: 10px; /*background: #2e323f;*/  }
         .repo_card { background: #000; border: 1px solid; border-radius: 10px; box-shadow: 3px 4px 5px;
          }
 
@@ -146,7 +148,7 @@ html, body{ margin: 0px; padding: 0px; font-size:24px; }
         li[text='name'] { background: coral; }
         a[textContent*='"Install"'] {color: #FFF;}
 
-        .card div span{ float: initial;  font-size: 14px;}
+        #card div span{ float: initial;  font-size: 14px;}
 
         #pack_list ul ul{display: flex; background: rgba(47, 50, 62, 0.85); 
         margin-top: 10px; 
@@ -271,14 +273,15 @@ html, body{ margin: 0px; padding: 0px; font-size:24px; }
 }
 .back_btn {
     float: left;
-    color: #FFF;
+    color: #000;
     height: 100vh;
-    background: #2e323f;
+
     font-size: 24px;
     padding: 10px;
     position: relative;
     top: -23px;
 }
 
-
-#config p[text='#'] {color: blue;}
+#edit #config p[textСontent='#'] {color: #AAA;}
+#edit #config p[textСщтеуче*=uppercase] {color: rgba(0,0, 255, 0);}
+#edit #config p[textContent*='='] {colo
