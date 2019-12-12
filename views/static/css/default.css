@@ -281,8 +281,8 @@ html, body{ margin: 0px; padding: 0px; font-size:24px; }
     position: relative;
     top: -23px;
 }
-.menu_active { background: #2f323e; color: orange;}
+.menu_active { border:2px  solid #2f323e;}
 
-#edit #config p[textСontent='#'] {color: #AAA;}
-#edit #config p[textСщтеуче*=uppercase] {color: rgba(0,0, 255, 0);}
-#edit #config p[textContent*='='] {color: red}
+#config p[textСontent='#'] {color: #AAA;}
+#config p[textСontent*=uppercase] {color: rgba(0,0, 255, 0);}
+#config p[textContent*='='] {color: red}

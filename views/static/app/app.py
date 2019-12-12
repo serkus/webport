@@ -94,14 +94,14 @@ class App():
   def views_list_pkgs(self, ev):
     item = ev.currentTarget.id
     #tem.Class="menu_active" 
-    self.active = item
+    self.active = str(item)
+    print("self.active" + self.active)
     try:
-      cont = document[item +"_c"]
+      cont = document[item + "_c"]
 
-      ui.clear_el(item, item -"_c")
-
+      ui.clear_el(item, item + "_c")
     except KeyError:
-      cont =  html.UL(id=item +"_c", Class="menu_active")
+      cont =  html.UL(id=item + "_c", Class="menu_active")
     for i in  self.portList['Catalog'][item]: 
       MItem = html.LI(i, id=i)
       
@@ -112,7 +112,7 @@ class App():
   def view_package(self):
     ui.clear_el()
     context = html.DIV(id="context")
-    Menupackages = html.UL(Class="list-group")
+    Menupackages = html.UL(id="list_p",  Class="list-group")
     dashbord = html.DIV(id="dashbboard", Class="dashboard")
     #catalog = {}
     #print(self.portList["Catalog"])
@@ -181,10 +181,11 @@ class App():
     document['dashbboard'].clear('card')
     pkg = str(ev.currentTarget.id)
     if not pkg.split('/'):
-      pkg = str(self.active + "/" + pkg)
-    alert(pkg)
+      pkg = self.active + "/" + pkg
+    #alert(pkg)
     req =ajax.ajax()
-    req.open('GET', '/?p=' + pkg,True)
+    req.open('GET', '/?p=' + pkg, True)
+    alert(pkg)
     #location ='/?p=' + pm
     req.bind('complete', self.view_pkg)
     req.send()

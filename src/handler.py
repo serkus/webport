@@ -95,21 +95,21 @@ class Handler(BaseHTTPRequestHandler):
 				search_result = {}
 				#if len(param.split('/')) == 2:
 				#	param = param.split('/')[1]
-				p_list = on_find(param)
-				print(p_list)
-				if len(p_list) == 0:
-					print("Never Found")
-					self.r_t = str(json.dumps({"Package_result": p_list}))
-				else:
-					for p in p_list:
+				#p_list = on_find(param)
+				#print(p_list)
+				#if len(p_list) == 0:
+				#	print("Never Found")
+				#	self.r_t = str(json.dumps({"Package_result": p_list}))
+				#else:
+					#for p in p_list:
 						#print(p)
-						if len(p.split("/")) == 2:
-							pk_list.append(search(p.split("/")[1]))
-						else:
-							pk_list.append(search(p))
-						#print(pk)
-					search_result = {"Package_result": pk_list}
-					self.r_t = str(json.dumps(search_result))
+				if len(param.split("/")) == 2:
+					pk_list.append(search(param.split("/")[1]))
+				else:
+					pk_list.append(search(param))
+					#print(pk)
+				search_result = {"Package_result": pk_list}
+				self.r_t = str(json.dumps(search_result))
 
 			elif self.path.startswith("/get_settings_app"):
 

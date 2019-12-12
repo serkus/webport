@@ -15,6 +15,11 @@ def clear_el(root="conteiner", chald="container"):
         print("print TypeError")
     except KeyError:
         print("KeyError in clear_el")
+def add_elemenet(root, chaild):
+    try:
+        documen[root] <= chaild
+    except KeyError :
+        print ("KeyError" + chaild)
 
 def Cards(data):
 	cd = html.DIV(id=data["Name"], Class=dashboard)
