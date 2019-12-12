@@ -93,17 +93,27 @@ class App():
     
   def views_list_pkgs(self, ev):
     item = ev.currentTarget.id
+    #tem.Class="menu_active" 
     self.active = item
+    try:
+      cont = document[item +"_c"]
+
+      ui.clear_el(item, item -"_c")
+
+    except KeyError:
+      cont =  html.UL(id=item +"_c", Class="menu_active")
     for i in  self.portList['Catalog'][item]: 
       MItem = html.LI(i, id=i)
-      document[item] <= MItem
+      
+      cont <= MItem
+      document[item] <= cont
       MItem.bind('click', self.info_pkg)
 
   def view_package(self):
     ui.clear_el()
     context = html.DIV(id="context")
     Menupackages = html.UL(Class="list-group")
-    dashbord = html.DIV(id="dashboard")
+    dashbord = html.DIV(id="dashbboard", Class="dashboard")
     #catalog = {}
     #print(self.portList["Catalog"])
     for n in self.portList["Catalog"].keys():
@@ -121,6 +131,7 @@ class App():
         print(n)
     context <= Menupackages
     document['conteiner'] <= context
+    document['conteiner'] <= dashbord
     
   def main_bind(self, ev):
     alert(ev.currentTarget.id)
@@ -169,6 +180,9 @@ class App():
   def info_pkg(self, ev):
     document['dashbboard'].clear('card')
     pkg = str(ev.currentTarget.id)
+    if not pkg.split('/'):
+      pkg = str(self.active + "/" + pkg)
+    alert(pkg)
     req =ajax.ajax()
     req.open('GET', '/?p=' + pkg,True)
     #location ='/?p=' + pm
@@ -177,7 +191,7 @@ class App():
 
   def find_pkg(self, env):
     document['splash'].style.display = "block"
-    self.clear_el() 
+    ui.clear_el() 
     #pl = json.loads(p_list)
     #self.data = pl
     widget= html.DIV(id="container", Class="")
@@ -220,8 +234,10 @@ class App():
 
     text = self.portage_list['portage'][config]
     document['edit'] <= html.DIV(id="config")
+    n=0
     for t in text:
-        document['config'] <= html.P(t)
+      n = n+1
+      document['config'] <= html.P(t)
         
   def show_settings_portage(self, req):
     print(req.responseText)

@@ -6,10 +6,13 @@ def printui():
     alert("print UI")
 #class UI():
 
-def clear_el():
+def clear_el(root="conteiner", chald="container"):
     try:
-        document["conteiner"].clear('container')
+        document[root].clear(chald)
         print("clear_el")
+
+    except TypeError:
+        print("print TypeError")
     except KeyError:
         print("KeyError in clear_el")
 

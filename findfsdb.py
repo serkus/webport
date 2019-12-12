@@ -43,8 +43,9 @@ def create_db():
 								pkg_list[d.split("/")[-2]].append(d.split('/')[-1])
 								print([d.split("/")[-2]])
 							else:
-								pkg_list[d.split("/")[-2]].append(d.split('/')[-1])
-								print([d.split('/')[-1]])
+								if d.split('/')[-1] not in pkg_list[d.split('/')[-2]]:
+									pkg_list[d.split("/")[-2]].append(d.split('/')[-1])
+									print([d.split('/')[-1]])
 
 			fn.write(json.dumps({"all_pkgs": all_pkgs,"Catalog": pkg_list}))
 		#print(len(pkg_list))
@@ -58,8 +59,8 @@ def on_find(p_v):
 	ret_p =""
 	ret = {}
 	with open('./pkgs.json', 'r') as  fn:
-		data = fn.read()
-		pkg_list= dict(data)
+		#data = fn.read()
+		pkg_list= fn.read()
 		"""
 		pkg_list = data.split("\n")
 		for i in pkg_list:
