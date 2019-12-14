@@ -73,13 +73,6 @@ class App():
     req.bind('complete', self.p_install_list)
     req.send()
 
-  def clear_el(self):
-    try:
-      document["conteiner"].clear('container')
-      print("clear_el")
-    except KeyError:
-      print("KeyError in clear_el")
-
   def loading(self):
     if document['splash'].style.display == "none":
       #document['splash'].style.opacity ="0.15"
@@ -95,13 +88,14 @@ class App():
     item = ev.currentTarget.id
     #tem.Class="menu_active" 
     self.active = str(item)
-    print("self.active" + self.active)
+    print("self.active:\t" + self.active)
     try:
       cont = document[item + "_c"]
-
       ui.clear_el(item, item + "_c")
     except KeyError:
-      cont =  html.UL(id=item + "_c", Class="menu_active")
+      cont.style.background ="#CCC"
+
+      cont = html.UL(id=item + "_c", Class="menu_active")
     for i in  self.portList['Catalog'][item]: 
       MItem = html.LI(i, id=i)
       
@@ -185,32 +179,30 @@ class App():
     #alert(pkg)
     req =ajax.ajax()
     req.open('GET', '/?p=' + pkg, True)
-    alert(pkg)
+    #alert(pkg)
     #location ='/?p=' + pm
     req.bind('complete', self.view_pkg)
     req.send()
 
   def find_pkg(self, env):
-    document['splash'].style.display = "block"
-    ui.clear_el() 
-    #pl = json.loads(p_list)
-    #self.data = pl
-    widget= html.DIV(id="container", Class="")
+    ui.clear_el()
+    widget = html.DIV(id="container", Class="")
     w_H = html.HEADER(Class="toolbar toolbar-header")
     w_H <= html.H1("Поиск", Class="title")
     widget <= w_H
-    container = html.DIV(Class="window-content")
+    container = html.DIV(id="content", Class="window-content")
     widget <= container
-
+    ui.add_elemenet('conteiner', widget)
     #ui.loading()
     #ui.clear_el()
     p = []
     c = html.OL(id="list_p", Class="list-group")
     c.style.width ='100vw'
     c <= html.HR()
-    container <= c
+    
     d = html.DIV(id="dashbboard")
-    container <= d
+    ui.add_elemenet("content", c)
+    ui.add_elemenet("content", d)
     #c <= html.STRONG("Найдено совпадений:\t" + str(len(pl["Package_result"])))
     for i in self.portList['all_pkgs']:
       if document["inS"].value in i and not i in p:
@@ -220,10 +212,8 @@ class App():
         p.append(i)
         item = html.P(i, id=i)
         item.bind('click', self.info_pkg)
-        c <= item
-    document["conteiner"] <= widget
-    document['splash'].style.display = 'none'
-    
+        ui.add_elemenet('list_p', item)
+    #document["conteiner"] <= widget 
   def route(self, method, url, b_metod):
     req = ajax.ajax()
     req.open(metod, url, True)

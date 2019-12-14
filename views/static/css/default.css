@@ -106,7 +106,7 @@ html, body{ margin: 0px; padding: 0px; font-size:24px; }
         }*/
         .Use { overflow: auto;display: block;width: 94%; }
         .Use li{ margin-left: -26px; display: inline-flex;padding-left: 31px;}
-        .Version{ overflow:  hidden;  }
+        .Version{ overflow:  hidden; display: inline-flex;  }
         .Version li{ margin-left: 9px; }
         #card:hover{ animation:  view_pkg; }  
         #card width:100%;
@@ -139,8 +139,8 @@ html, body{ margin: 0px; padding: 0px; font-size:24px; }
          width: 15vw; }
         #list_p p{ font-size: 0.6em; }
         #list_p li { border-bottom:  1px solid #000; }
-        #list_p li a { font-size: 1.6em; }
-        .dashboard{ font-size: 1.6em; /* padding: 10px; /*background: #2e323f;*/  }
+        #list_p li a { font-size: 16px; }
+        .dashboard{ font-size: 16px; /* padding: 10px; /*background: #2e323f;*/  }
         .repo_card { background: #000; border: 1px solid; border-radius: 10px; box-shadow: 3px 4px 5px;
          }
 
@@ -251,9 +251,9 @@ html, body{ margin: 0px; padding: 0px; font-size:24px; }
 
 /* End find */
 
-.pkg{color: #0F0;}
+.pkg{color: #0F0; font: bold;} 
 
-.mask{ color: coral; }
+.mask{ color: coral; font: bold;  }
 .flex_header{
     display: flex;
     background: darkgrey;

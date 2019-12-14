@@ -15,11 +15,14 @@ def clear_el(root="conteiner", chald="container"):
         print("print TypeError")
     except KeyError:
         print("KeyError in clear_el")
+
 def add_elemenet(root, chaild):
+    print(root)
+    print(chaild)
     try:
-        documen[root] <= chaild
-    except KeyError :
-        print ("KeyError" + chaild)
+        document[root] <= chaild
+    except Exception (e):
+        print ("KeyError" + str(e) + chaild)
 
 def Cards(data):
 	cd = html.DIV(id=data["Name"], Class=dashboard)
@@ -119,7 +122,7 @@ def bind_back():
 
 def dashbord_view(pkg):
     card = html.DIV(id='card', Class = "dashboard")
-    document["list_p"].style.width = '0vw'
+    document["list_p"].style.width = '15vw'
     document["dashbboard"].style.width = '100vw'
     bk = html.B("<", id="back", Class="back_btn")
     bk.bind('click', bind_back)
@@ -134,7 +137,11 @@ def dashbord_view(pkg):
     
     for v in i["version"]:
         print("Debug:\t" +"\nV\n" + str(v) + "\t" + "\nI:\n" +str(i))
-        vers <= html.LI(v, Class="pkg")
+        if v.endswith("[U]"):
+            c = pkg_class="pkg"
+        elif v.endswith('[M]'):
+            c = pkg_class ="mask"
+        vers <= html.LI(v, Class=pkg_class)
         print(inst)
     card <= vers
       
