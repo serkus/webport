@@ -93,15 +93,17 @@ class App():
       cont = document[item + "_c"]
       ui.clear_el(item, item + "_c")
     except KeyError:
+      cont = html.UL(id=item + "_c", Class="menu_active")
       cont.style.background ="#CCC"
 
-      cont = html.UL(id=item + "_c", Class="menu_active")
+     
     for i in  self.portList['Catalog'][item]: 
       MItem = html.LI(i, id=i)
       
       cont <= MItem
       document[item] <= cont
       MItem.bind('click', self.info_pkg)
+
 
   def view_package(self):
     ui.clear_el()
