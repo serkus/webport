@@ -72,7 +72,7 @@ class Handler(BaseHTTPRequestHandler):
 					data = fn.read()
 					pkg_list = json.loads(data)
 					print(pkg_list)
-				self.r_t =json.dumps({"dump_portage": pkg_list})
+				self.r_t = json.dumps({"dump_portage": pkg_list})
 			
 			elif self.path.startswith("/?st_app="):
 				config = load_config()

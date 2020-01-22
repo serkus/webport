@@ -21,7 +21,7 @@
 	<code>
 	<i style="color: red;">cd  web_pоrt &&
 	git clone https://github.com/brython-dev/brython.git ./view/static/js/ <i>
-	<b> или скачайте Brython  и распакуйте его в ./view/static/js/ <b>
+	<b> или скачайте Brython  и распакуйте его в ./view/static/js/ </b>
 	 </code>
 <li>Запустите его ./start<li>
 <li>Откройте в браузере localhost:8080</li>

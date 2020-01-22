@@ -111,7 +111,6 @@ def scan_config_portage():
 	data = {}
 	pf={}
 	for d, dirs, files in os.walk(dir_root):
-
 		print(str(d))
 		i=i+1
 		for fl in files:

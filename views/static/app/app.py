@@ -104,10 +104,10 @@ class App():
       document[item] <= cont
       MItem.bind('click', self.info_pkg)
 
-
   def view_package(self):
     ui.clear_el()
     context = html.DIV(id="context")
+    
     Menupackages = html.UL(id="list_p",  Class="list-group")
     dashbord = html.DIV(id="dashbboard", Class="dashboard")
     #catalog = {}
@@ -224,7 +224,7 @@ class App():
   def show_file(self, ev):
     config = ev.currentTarget.id
     document["edit"].clear('config')
-
+    print(self.portage_list)
     text = self.portage_list['portage'][config]
     document['edit'] <= html.DIV(id="config")
     n=0
