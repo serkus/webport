@@ -33,6 +33,7 @@ class Handler(BaseHTTPRequestHandler):
 	def do_GET(self):
 		self.r_t =""
 		print(Router.parse_url)
+		request =  Router.parse_url()
 		if self.client_address[0] == '127.0.0.1' or self.client_address[0].startswith('10.0'):
 			self.send_response(200)
 			self.end_headers()
@@ -42,11 +43,11 @@ class Handler(BaseHTTPRequestHandler):
 					self.r_t=f.read()
 				print(self.client_address)
 				
-			elif self.path == '/main':
+			elif request['metod']  == 'main':
 				with open("./README.txt", 'r') as f:
 					self.r_t = str(f.read())
 
-			elif self.path == '/ovelays':
+			elif request['metod'] == 'ovelays':
 				overlays = get_list_overlays()
 				#print(ovls)
 				if overlays:                  #			== "":
@@ -66,7 +67,7 @@ class Handler(BaseHTTPRequestHandler):
 				self.send_response(200)
 				#print(self.r_t)
 
-			elif self.path == '/get_dump_list':
+			elif request['metod'] == 'get_dump_list':
 				with open('./pkgs.json', 'r') as fn:
 					data = fn.read()
 					pkg_list = json.loads(data)
@@ -88,8 +89,8 @@ class Handler(BaseHTTPRequestHandler):
 				print(config)
 				print(param)
 
-			elif self.path.startswith('/?p='):
-				param = self.path.replace('/?p=', '')
+			elif request['metd'] =='find'):
+				param = request['params']['name']
 				pk_list = []
 				search_result = {}
 				#if len(param.split('/')) == 2:
@@ -110,11 +111,11 @@ class Handler(BaseHTTPRequestHandler):
 				search_result = {"Package_result": pk_list}
 				self.r_t = str(json.dumps(search_result))
 
-			elif self.path.startswith("/get_settings_app"):
+			elif  request['metod'] == "get_settings_app":
 
 				self.r_t = str(json.dumps(load_config()))
 
-			elif self.path == '/get_portage':
+			elif request['metod'] == 'get_portage':
 
 				#self.r_t = str(sort_inatll_pkg())
 				self.r_t = str(json.dumps(scan_config_portage()))
