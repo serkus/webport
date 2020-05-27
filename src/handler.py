@@ -7,11 +7,9 @@ import os
 from utils.utils import get_list_overlays, load_config, write_config, sort_inatll_pkg, scan_config_portage
 from package import search
 from findfsdb import on_find 
-
+from routre import Router
 #repl = '<?xml version=\'1.0\' encoding=\'utf-8\'?>\n<!DOCTYPE repositories SYSTEM "http://www.gentoo.org/dtd/repositories.dtd">'
 class Handler(BaseHTTPRequestHandler):
-	def __int__(self):
-		self.p_list =[]
 
 	def r_403(self):
 		self.send_response(403)
@@ -22,6 +20,7 @@ class Handler(BaseHTTPRequestHandler):
 		self.send_response(404)
 		self.end_headers()
 		print(self.client_address)
+
 	def route(self):
 		if self.path in route:
 			return true
@@ -33,6 +32,7 @@ class Handler(BaseHTTPRequestHandler):
 
 	def do_GET(self):
 		self.r_t =""
+		print(Router.parse_url)
 		if self.client_address[0] == '127.0.0.1' or self.client_address[0].startswith('10.0'):
 			self.send_response(200)
 			self.end_headers()
@@ -43,14 +43,13 @@ class Handler(BaseHTTPRequestHandler):
 				print(self.client_address)
 				
 			elif self.path == '/main':
-				f = open("./README.txt", 'r')
-				self.r_t = str(f.read())
-				f.close()
+				with open("./README.txt", 'r') as f:
+					self.r_t = str(f.read())
 
 			elif self.path == '/ovelays':
 				overlays = get_list_overlays()
 				#print(ovls)
-				if overlays == "":
+				if overlays:                  #			== "":
 					overlays ="Error"
 
 				self.r_t=json.dumps({"repositories": overlays})
