@@ -7,7 +7,7 @@ import os
 from utils.utils import get_list_overlays, load_config, write_config, sort_inatll_pkg, scan_config_portage
 from package import search
 from findfsdb import on_find 
-from routre import Router
+from src.route import Router
 #repl = '<?xml version=\'1.0\' encoding=\'utf-8\'?>\n<!DOCTYPE repositories SYSTEM "http://www.gentoo.org/dtd/repositories.dtd">'
 class Handler(BaseHTTPRequestHandler):
 
@@ -32,22 +32,24 @@ class Handler(BaseHTTPRequestHandler):
 
 	def do_GET(self):
 		self.r_t =""
-		print(Router.parse_url)
-		request =  Router.parse_url()
+		#print(Router.parse_url(self))
+		#print("data:\t" + self.rfile.read())
+		#request = Router.parse_url(self)
 		if self.client_address[0] == '127.0.0.1' or self.client_address[0].startswith('10.0'):
 			self.send_response(200)
 			self.end_headers()
 			if self.path =="/":
 
-				with open('./views/index.html', 'tr') as f:
+				with open('./views/index.html', 'tr') as f: 
 					self.r_t=f.read()
 				print(self.client_address)
-				
-			elif request['metod']  == 'main':
+
+			elif self.path  == '/main':
+				print(self.rfile/read())
 				with open("./README.txt", 'r') as f:
 					self.r_t = str(f.read())
 
-			elif request['metod'] == 'ovelays':
+			elif self.path == '/ovelays':
 				overlays = get_list_overlays()
 				#print(ovls)
 				if overlays:                  #			== "":
@@ -67,11 +69,15 @@ class Handler(BaseHTTPRequestHandler):
 				self.send_response(200)
 				#print(self.r_t)
 
-			elif request['metod'] == 'get_dump_list':
-				with open('./pkgs.json', 'r') as fn:
-					data = fn.read()
-					pkg_list = json.loads(data)
-					print(pkg_list)
+			elif self.path == '/get_dump_list':
+				try:
+					with open('./pkgs.json', 'r') as fn:
+						data = fn.read()
+						pkg_list = json.load
+						s(data)
+						print(pkg_list)
+				except Exception (e):
+					print(str(e))
 				self.r_t = json.dumps({"dump_portage": pkg_list})
 			
 			elif self.path.startswith("/?st_app="):
@@ -89,7 +95,7 @@ class Handler(BaseHTTPRequestHandler):
 				print(config)
 				print(param)
 
-			elif request['metd'] =='find'):
+			elif self.path == 'find':
 				param = request['params']['name']
 				pk_list = []
 				search_result = {}
@@ -111,11 +117,11 @@ class Handler(BaseHTTPRequestHandler):
 				search_result = {"Package_result": pk_list}
 				self.r_t = str(json.dumps(search_result))
 
-			elif  request['metod'] == "get_settings_app":
+			elif self.path == "get_settings_app":
 
 				self.r_t = str(json.dumps(load_config()))
 
-			elif request['metod'] == 'get_portage':
+			elif self.path == 'get_portage':
 
 				#self.r_t = str(sort_inatll_pkg())
 				self.r_t = str(json.dumps(scan_config_portage()))
@@ -145,7 +151,6 @@ class Handler(BaseHTTPRequestHandler):
 	def r_static(self):
 		if os.path.exists('./views/' + self.path):
 			#self.send_response(200)
-			#self.send_header('Content-type','text/css')
 			#self.end_headers()
 			with open('./views/' + self.path, 'tr') as f:
 				self.r_t=f.read()

@@ -48,11 +48,14 @@ class App():
     elif req.status == 403:
       alert("Доступ запрещён")
 
+  def getReq(metod="GET", url="/", header, data=""):
+     req = ajax.ajax()
+     req.open(metod, url, True)
+     req.bind('compile', header)
+     req.send(data)
+
   def Req_portage_dump(self):
-    req = ajax.ajax()
-    req.open('GET', '/get_dump_list', True)
-    req.bind('complete', self.get_portage_dump)
-    req.send()
+    self.getReq('GET',"/", self.get_portage_dump, {"metod": "get_dump_list"} )
 
   def p_install_list(self, req):
     if req.status == 200:
@@ -68,10 +71,8 @@ class App():
     return plist
 
   def req_istall_pkg(self):
-    req = ajax.ajax()
-    req.open('GET', '/get_dump_list', True)
-    req.bind('complete', self.p_install_list)
-    req.send()
+    self.getReq('GET',"/", self.get_portage_dump, {"metod": "get_dump_list"} )
+ 
 
   def loading(self):
     if document['splash'].style.display == "none":
@@ -140,7 +141,8 @@ class App():
     req = ajax.ajax()
     req.open('GET', "/main", True)
     req.bind('complete', self.main)
-    req.send()
+    req.send(str(json.dupms({"metod": 'main'})))
+    pass
 
   def show_result(self, req):
     if req.status == 200:
@@ -150,10 +152,7 @@ class App():
 
   def app_save(self,  event):
     port = document['Sv_port'].value
-    req = ajax.ajax()
-    req.open("GET", "?st_app=" +'port='+str(port) + ",Lang=" + "ru", True)
-    req.bind('complete', self.show_result)
-    req.send()
+    self.getReq("GET", "?st_app", self.show_result, json.dump({'port': port, 'Lang':"ru" }))
 
   def app_settings(self, req):
     #location ="/app_st"
@@ -161,10 +160,7 @@ class App():
     document['App_save'].bind('click', self.app_save)
 
   def get_sett(self):
-    req = ajax.ajax()
-    req.open("GET", "/get_settings_app", True)
-    req.bind('complete', self.app_settings)
-    req.send()
+    self.getReq("GET", "/get_settings_app", self.app_settings, "" )
 
   def view_pkg(self, req):
     #self.loading()
@@ -179,12 +175,7 @@ class App():
     if not pkg.split('/'):
       pkg = self.active + "/" + pkg
     #alert(pkg)
-    req =ajax.ajax()
-    req.open('GET', '/?p=' + pkg, True)
-    #alert(pkg)
-    #location ='/?p=' + pm
-    req.bind('complete', self.view_pkg)
-    req.send()
+    self.getReq("GET", "/", self.view_pkg, json.dupms({'metod':'find', 'params': pkg}))
 
   def find_pkg(self, env):
     ui.clear_el()
@@ -201,7 +192,7 @@ class App():
     c = html.OL(id="list_p", Class="list-group")
     c.style.width ='100vw'
     c <= html.HR()
-    
+  
     d = html.DIV(id="dashbboard")
     ui.add_elemenet("content", c)
     ui.add_elemenet("content", d)
@@ -216,10 +207,6 @@ class App():
         item.bind('click', self.info_pkg)
         ui.add_elemenet('list_p', item)
     #document["conteiner"] <= widget 
-  def route(self, method, url, b_metod):
-    req = ajax.ajax()
-    req.open(metod, url, True)
-    req.bind(b_metod['metod'], b_metod['callback'])
 
   def show_file(self, ev):
     config = ev.currentTarget.id
@@ -238,10 +225,7 @@ class App():
     #alert(self.portage_list)
 
   def get_settings_portage(self):
-    req = ajax.ajax()
-    req.open('GET', '/get_portage', True)
-    req.bind('complete', self.show_settings_portage)
-    req.send()
+    self.getReq("GET", "/", self.show_settings_portage, json.dupms({"metod": "get_portage"}))
   
   def view_st_portage(self):
     #alert(self.portage_list)
@@ -261,11 +245,8 @@ class App():
     self.loading()
     ui.clear_el()
     document['conteiner'] <= html.DIV(id="container")
+    self.getReq("GET", "/", self.view_overlays,  "")
 
-    req = ajax.ajax()
-    req.open('GET', "/ovelays", True)
-    req.bind('complete', self.view_overlays)
-    req.send()
   #document['all'].bind('click', all_pkgs)
 
   #get_overlays()
